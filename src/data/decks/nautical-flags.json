@@ -1,0 +1,40 @@
+{
+  "schema": "1.0",
+  "deck": {
+    "id": "nautical-flags",
+    "name": "Nautical Flags",
+    "description": "International Code of Signals (ICS) — the 26 alphabet flags and their maritime meanings.",
+    "category": "maritime",
+    "tag": "Nautical · ICS Flags",
+    "version": "1.0.0",
+    "source": "https://en.wikipedia.org/wiki/International_Code_of_Signals",
+    "cards": [
+      { "id": "flag-alpha",   "label": "Alpha (A)",   "desc": "I have a diver down; keep well clear at slow speed.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/ICS_Alpha.svg/200px-ICS_Alpha.svg.png" },
+      { "id": "flag-bravo",   "label": "Bravo (B)",   "desc": "I am taking in, or discharging, or carrying dangerous goods.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/ICS_Bravo.svg/200px-ICS_Bravo.svg.png" },
+      { "id": "flag-charlie", "label": "Charlie (C)", "desc": "Yes / affirmative.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/ICS_Charlie.svg/200px-ICS_Charlie.svg.png" },
+      { "id": "flag-delta",   "label": "Delta (D)",   "desc": "Keep clear of me — I am maneuvering with difficulty.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/ICS_Delta.svg/200px-ICS_Delta.svg.png" },
+      { "id": "flag-echo",    "label": "Echo (E)",    "desc": "I am altering my course to starboard.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ICS_Echo.svg/200px-ICS_Echo.svg.png" },
+      { "id": "flag-foxtrot", "label": "Foxtrot (F)", "desc": "I am disabled — communicate with me.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/ICS_Foxtrot.svg/200px-ICS_Foxtrot.svg.png" },
+      { "id": "flag-golf",    "label": "Golf (G)",    "desc": "I require a pilot. (Fishing vessel: hauling nets.)", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/ICS_Golf.svg/200px-ICS_Golf.svg.png" },
+      { "id": "flag-hotel",   "label": "Hotel (H)",   "desc": "I have a pilot on board.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/ICS_Hotel.svg/200px-ICS_Hotel.svg.png" },
+      { "id": "flag-india",   "label": "India (I)",   "desc": "I am altering my course to port.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/ICS_India.svg/200px-ICS_India.svg.png" },
+      { "id": "flag-juliet",  "label": "Juliet (J)",  "desc": "I am on fire and have dangerous cargo on board — keep well clear.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/ICS_Juliet.svg/200px-ICS_Juliet.svg.png" },
+      { "id": "flag-kilo",    "label": "Kilo (K)",    "desc": "I wish to communicate with you.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ICS_Kilo.svg/200px-ICS_Kilo.svg.png" },
+      { "id": "flag-lima",    "label": "Lima (L)",    "desc": "You should stop your vessel immediately.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/ICS_Lima.svg/200px-ICS_Lima.svg.png" },
+      { "id": "flag-mike",    "label": "Mike (M)",    "desc": "My vessel is stopped and making no way through the water.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/ICS_Mike.svg/200px-ICS_Mike.svg.png" },
+      { "id": "flag-november","label": "November (N)","desc": "No / negative.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/ICS_November.svg/200px-ICS_November.svg.png" },
+      { "id": "flag-oscar",   "label": "Oscar (O)",   "desc": "Man overboard.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/ICS_Oscar.svg/200px-ICS_Oscar.svg.png" },
+      { "id": "flag-papa",    "label": "Papa (P)",    "desc": "In harbour: all persons to report on board — vessel about to proceed to sea.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/ICS_Papa.svg/200px-ICS_Papa.svg.png" },
+      { "id": "flag-quebec",  "label": "Quebec (Q)",  "desc": "My vessel is healthy — I request free pratique.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/ICS_Quebec.svg/200px-ICS_Quebec.svg.png" },
+      { "id": "flag-romeo",   "label": "Romeo (R)",   "desc": "No ICS single-letter meaning. Used in combinations.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/ICS_Romeo.svg/200px-ICS_Romeo.svg.png" },
+      { "id": "flag-sierra",  "label": "Sierra (S)",  "desc": "I am operating astern propulsion.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/ICS_Sierra.svg/200px-ICS_Sierra.svg.png" },
+      { "id": "flag-tango",   "label": "Tango (T)",   "desc": "Keep clear of me — I am engaged in pair trawling.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/ICS_Tango.svg/200px-ICS_Tango.svg.png" },
+      { "id": "flag-uniform", "label": "Uniform (U)", "desc": "You are running into danger.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/ICS_Uniform.svg/200px-ICS_Uniform.svg.png" },
+      { "id": "flag-victor",  "label": "Victor (V)",  "desc": "I require assistance.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/ICS_Victor.svg/200px-ICS_Victor.svg.png" },
+      { "id": "flag-whiskey", "label": "Whiskey (W)", "desc": "I require medical assistance.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/ICS_Whiskey.svg/200px-ICS_Whiskey.svg.png" },
+      { "id": "flag-xray",    "label": "X-Ray (X)",   "desc": "Stop carrying out your intentions and watch for my signals.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/ICS_Xray.svg/200px-ICS_Xray.svg.png" },
+      { "id": "flag-yankee",  "label": "Yankee (Y)",  "desc": "I am dragging my anchor.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/ICS_Yankee.svg/200px-ICS_Yankee.svg.png" },
+      { "id": "flag-zulu",    "label": "Zulu (Z)",    "desc": "I require a tug. (Fishing vessel: shooting nets.)", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/ICS_Zulu.svg/200px-ICS_Zulu.svg.png" }
+    ]
+  }
+}

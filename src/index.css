@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Kairos Design Tokens ─────────────────── */
+:root {
+  --gold: #c9a84c;
+  --gold-light: #e8d5a3;
+  --ink: #1a1a2e;
+  --ink-mid: #2d2d4e;
+  --parchment: #f7f3eb;
+}
+
+/* ── Base ─────────────────────────────────── */
+body {
+  @apply font-body bg-parchment text-ink antialiased;
+  min-height: 100dvh;
+}
+
+/* ── Card flip animation ──────────────────── */
+.card-wrap {
+  perspective: 1000px;
+}
+
+.card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-wrap.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-back-face {
+  transform: rotateY(180deg);
+}
+
+/* ── Utility ──────────────────────────────── */
+.font-display {
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+/* Safe area for PWA on mobile */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
