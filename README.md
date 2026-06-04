@@ -2,82 +2,127 @@
 
 > *καιρός — the right, critical, or opportune moment*
 
-A spaced repetition flashcard app built for deep, versatile learning. Phase 1 focuses on visual recognition (ASL, nautical flags, languages). Phase 2 will add RAG-powered knowledge digests — podcast summaries and RSS feeds converted into study cards.
+A spaced repetition flashcard app built for deep, versatile learning. Phase 1 delivers a full study UI with SM-2 SRS, built-in visual decks, and progress tracking. Phase 2 will add RAG-powered knowledge digests — podcast summaries and RSS feeds converted into study cards.
+
+Deployable as a **PWA** (installable, offline-first) or as a **Streamlit app** for cloud hosting.
 
 ---
 
-## Features (Phase 1 — Flashcards)
+## Status — v0.1
 
-- **SM-2 Spaced Repetition** — Anki-style algorithm. Cards surface at the optimal moment.
-- **Dual study modes** — Image → Name, or Name → Image
-- **Soft session timer** — tracks time without pressure
-- **Built-in decks** — ASL Alphabet, Nautical ICS Flags
-- **Expandable deck format** — drop a `kairos-*.json` file to add any subject
-- **Card editor** — override image URL or description per card for QA
-- **IndexedDB storage** — all data stays local in the browser
-- **Export / Import** — JSON backup of any deck + progress
-- **PWA** — installable on mobile, works offline
-
----
-
-## Roadmap
-
-### Phase 1 — Flashcards ✅
-- [x] SM-2 SRS algorithm
-- [x] ASL Alphabet deck
-- [x] Nautical Flags deck
-- [ ] Greek alphabet deck
-- [ ] Japanese hiragana / katakana decks
-- [ ] Nautical knots deck
-- [ ] Wikimedia auto-image fetch for new decks
-- [ ] Deck import via file drop
-- [ ] Progress dashboard + streak tracking
-- [ ] PWA offline support
-
-### Phase 2 — Knowledge Digest (RAG)
-- [ ] RSS feed ingestion → auto-generated cards
-- [ ] Podcast transcript → study cards (via Whisper or API)
-- [ ] URL scrape → card generation
-- [ ] Optional cloud sync (backend TBD)
-- [ ] Podcast player + highlights
+| Area | Status |
+|---|---|
+| SM-2 SRS algorithm | ✅ Complete |
+| Study UI (flip, grade, progress) | ✅ Complete |
+| Browse decks with SRS status | ✅ Complete |
+| Progress dashboard | ✅ Complete |
+| Settings (study prefs, import/export) | ✅ Complete |
+| Deck import (drag-and-drop JSON) | ✅ Complete |
+| Built-in decks — ASL Alphabet, Nautical Flags | ✅ Complete |
+| PWA (installable, offline) | ✅ Complete |
+| Streamlit cloud deployment | ✅ Complete |
+| Greek / Japanese / Knots decks | Roadmap |
+| Full streak history (session log) | Roadmap |
+| Phase 2 — RAG knowledge digest | Roadmap |
 
 ---
 
-## Tech Stack
+## Features
 
-| Layer | Choice | Reason |
-|---|---|---|
-| Framework | React 18 + Vite | Component model scales to Phase 2 RAG UI |
-| Language | TypeScript | Type safety across both phases |
-| Styling | Tailwind CSS | Mobile-first, fast iteration |
-| Storage | IndexedDB (`idb`) | Handles thousands of cards, no server needed |
-| Routing | React Router v6 | Clean page structure, future-proof |
-| PWA | `vite-plugin-pwa` | Mobile installable, offline-first |
+- **SM-2 Spaced Repetition** — cards surface at the optimal review interval. Again / Hard / Good / Easy grades with live next-review timing hints.
+- **Card flip animation** — 3D CSS flip, Cinzel/gold/parchment visual design.
+- **Dual study modes** — Image → Label, or Label → Image.
+- **Browse page** — deck grid with per-deck due / new / learned pill counts.
+- **Progress page** — overall learned-% ring, today's review count, streak, per-deck progress bars.
+- **Settings page** — default study mode, daily goal slider, deck JSON import (drag-and-drop), progress export/import, data reset.
+- **IndexedDB storage** — all SRS progress and settings stay local in the browser.
+- **PWA** — installable on mobile and desktop, works offline.
+- **Streamlit wrapper** — single-file React bundle served via `st.components.v1.html()` for Streamlit Community Cloud.
 
 ---
 
 ## Getting Started
 
 ```bash
-# Clone
-git clone https://github.com/<your-username>/kairos.git
+git clone https://github.com/hefrock/kairos.git
 cd kairos
-
-# Install
 npm install
 
-# Dev server
+# Development server
 npm run dev
 
-# Build
+# Production PWA build  →  dist/
 npm run build
+
+# Streamlit single-file build  →  streamlit_build/index.html
+npm run build:streamlit
+```
+
+### Run with Streamlit locally
+
+```bash
+pip install streamlit
+streamlit run streamlit_app.py
+```
+
+---
+
+## Streamlit Community Cloud Deployment
+
+1. Push the repo to GitHub (ensure `streamlit_build/index.html` is committed).
+2. Go to [share.streamlit.io](https://share.streamlit.io) → **New app**.
+3. Select repo `hefrock/kairos`, branch `main`, main file `streamlit_app.py`.
+4. Click **Deploy** — no Node.js build step needed on the server.
+
+> **Keeping the bundle in sync:** after any UI changes run `npm run build:streamlit` and commit the updated `streamlit_build/index.html`.
+
+---
+
+## Tech Stack
+
+| Layer | Choice |
+|---|---|
+| Framework | React 18 + Vite |
+| Language | TypeScript (strict) |
+| Styling | Tailwind CSS — Cinzel / DM Sans, gold / ink / parchment palette |
+| Storage | IndexedDB via `idb` |
+| Routing | React Router v6 — HashRouter for static host compatibility |
+| PWA | `vite-plugin-pwa` |
+| Streamlit build | `vite-plugin-singlefile` |
+| Cloud host | Streamlit Community Cloud |
+
+---
+
+## Project Structure
+
+```
+kairos/
+├── src/
+│   ├── components/
+│   │   ├── study/         # Flashcard, GradeButtons, SessionComplete,
+│   │   │                  #   ProgressBar, DeckSwitcher
+│   │   └── layout/        # Layout, Nav
+│   ├── pages/             # StudyPage, BrowsePage, ProgressPage, SettingsPage
+│   ├── hooks/             # useDecks, useStudySession, useDeckStats,
+│   │                      #   useProgress, useSettings
+│   ├── lib/
+│   │   ├── srs/           # SM-2 algorithm
+│   │   ├── db/            # IndexedDB layer
+│   │   └── fetcher/       # Wikimedia API helper
+│   ├── data/decks/        # asl-alphabet.json, nautical-flags.json
+│   └── types/             # Shared TypeScript interfaces
+├── streamlit_build/       # Pre-built single-file bundle (committed)
+├── streamlit_app.py       # Streamlit cloud wrapper
+├── requirements.txt       # streamlit>=1.32.0
+├── vite.config.ts         # PWA build
+└── vite.config.streamlit.ts  # Single-file Streamlit build
 ```
 
 ---
 
 ## Deck Format
 
-Decks are plain JSON files conforming to the `DeckPack` schema (`src/types/index.ts`).
+Decks are plain JSON conforming to the `DeckPack` schema (`src/types/index.ts`). Drop any `.json` file into **Settings → Import Deck**.
 
 ```json
 {
@@ -93,7 +138,7 @@ Decks are plain JSON files conforming to the `DeckPack` schema (`src/types/index
       {
         "id": "my-deck-001",
         "label": "Card Label",
-        "desc": "What this card teaches.",
+        "desc": "Explanation shown on card back.",
         "img": "https://example.com/image.png"
       }
     ]
@@ -101,41 +146,24 @@ Decks are plain JSON files conforming to the `DeckPack` schema (`src/types/index
 }
 ```
 
-Drop any `kairos-*.json` file into the Settings page to install a new deck.
-
 ---
 
-## Project Structure
+## Roadmap
 
-```
-kairos/
-├── src/
-│   ├── components/
-│   │   ├── flashcard/     # Flashcard, GradeButtons, CardEditor
-│   │   ├── deck/          # DeckSwitcher, MiniCard, BrowseGrid
-│   │   └── layout/        # Layout, Nav, Header
-│   ├── pages/             # StudyPage, BrowsePage, ProgressPage, SettingsPage
-│   ├── hooks/             # useDecks, useStudySession, useTimer, useSettings
-│   ├── lib/
-│   │   ├── srs/           # SM-2 algorithm (sm2.ts)
-│   │   ├── db/            # IndexedDB layer (idb)
-│   │   └── fetcher/       # Wikimedia API, URL fetcher
-│   ├── data/
-│   │   └── decks/         # Built-in JSON deck packs
-│   └── types/             # Shared TypeScript types
-├── public/                # PWA icons, favicon
-├── docs/                  # Architecture notes, Phase 2 design
-└── scripts/               # Deck generation / scraping utilities (future)
-```
+### Phase 1.x
+- [ ] Additional decks: Greek alphabet, Japanese hiragana/katakana, nautical knots
+- [ ] Full streak history (requires session log store in IndexedDB)
+- [ ] Card editor UI (override image / description per card)
+- [ ] Wikimedia image search for custom decks
 
----
-
-## Contributing
-
-This is a personal learning tool in active development. Issues and PRs welcome once the project stabilises past v0.1.
+### Phase 2 — Knowledge Digest (RAG)
+- [ ] RSS feed ingestion → auto-generated study cards
+- [ ] Podcast transcript → cards (Whisper / API)
+- [ ] URL scrape → card generation
+- [ ] Optional cloud sync
 
 ---
 
 ## License
 
-To be determined. All rights reserved for now.
+All rights reserved.
