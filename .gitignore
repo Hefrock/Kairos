@@ -3,6 +3,8 @@ node_modules/
 
 # Build output
 dist/
+# streamlit_build/ is intentionally tracked — Streamlit Community Cloud
+# serves it directly without a Node.js build step.
 
 # Vite / PWA
 *.local

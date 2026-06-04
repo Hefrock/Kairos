@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:streamlit": "tsc && vite build --config vite.config.streamlit.ts",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "type-check": "tsc --noEmit"
@@ -31,6 +32,7 @@
     "tailwindcss": "^3.4.4",
     "typescript": "^5.4.5",
     "vite": "^5.3.1",
-    "vite-plugin-pwa": "^0.20.0"
+    "vite-plugin-pwa": "^0.20.0",
+    "vite-plugin-singlefile": "^2.3.3"
   }
 }
