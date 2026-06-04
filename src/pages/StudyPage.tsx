@@ -1,23 +1,13 @@
-// ─────────────────────────────────────────────
-// StudyPage
-// ─────────────────────────────────────────────
-// TODO (Claude Code): Build out the full UI using:
-//   - useDecks() to list/select decks
-//   - useStudySession() for SM-2 queue, flip, grade
-//   - <Flashcard /> component for the card
-//   - <GradeButtons /> for Again/Hard/Good/Easy
-//   - <SessionComplete /> for end-of-session summary
-//
-// Reference the working prototype in this conversation for
-// the visual design (Cinzel font, gold/ink/parchment palette,
-// card flip animation, soft timer, progress bar).
-// ─────────────────────────────────────────────
-
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDecks } from '@/hooks/useDecks'
 import { useStudySession } from '@/hooks/useStudySession'
 import type { StudyMode } from '@/types'
+import Flashcard from '@/components/study/Flashcard'
+import GradeButtons from '@/components/study/GradeButtons'
+import SessionComplete from '@/components/study/SessionComplete'
+import ProgressBar from '@/components/study/ProgressBar'
+import DeckSwitcher from '@/components/study/DeckSwitcher'
 
 export default function StudyPage() {
   const { deckId } = useParams<{ deckId?: string }>()
@@ -27,61 +17,89 @@ export default function StudyPage() {
   const activeDeck = decks.find(d => d.id === (deckId ?? decks[0]?.id)) ?? null
   const session = useStudySession(activeDeck, mode)
 
-  if (loading) return <p className="text-center text-ink/50 pt-12">Loading decks…</p>
-  if (!activeDeck) return <p className="text-center text-ink/50 pt-12">No decks found.</p>
+  // Space bar flips the card when studying
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === ' ' && session.state === 'studying') {
+        e.preventDefault()
+        session.flip()
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [session.state, session.flip])
+
+  if (loading) return (
+    <div className="flex items-center justify-center py-24">
+      <p className="font-display text-gold/50 tracking-widest animate-pulse">Loading…</p>
+    </div>
+  )
+
+  if (!activeDeck) return (
+    <div className="flex flex-col items-center justify-center py-24 gap-3">
+      <p className="font-display text-2xl text-ink/50">No decks found</p>
+      <p className="text-ink/30 text-sm font-body">Import a deck from Browse to get started.</p>
+    </div>
+  )
+
+  if (session.state === 'done' && session.stats) {
+    return (
+      <SessionComplete
+        stats={session.stats}
+        deckName={activeDeck.name}
+        onRestart={session.restart}
+      />
+    )
+  }
 
   return (
-    <div>
-      <p className="text-sm text-ink/50 mb-4">
-        {/* Deck selector — TODO: replace with DeckSwitcher component */}
-        Deck: <strong>{activeDeck.name}</strong> ·{' '}
-        Card {session.index + 1} of {session.total}
-      </p>
+    <div className="flex flex-col">
 
-      {/* TODO: <Flashcard card={session.currentCard} mode={mode} onFlip={session.flip} state={session.state} /> */}
-      <div className="bg-white border border-gold/30 rounded-card p-8 text-center min-h-[280px] flex items-center justify-center">
-        {session.state === 'done' ? (
-          <div>
-            <p className="font-display text-2xl text-gold mb-4">Session Complete</p>
-            <p className="text-ink/60 mb-6">
-              {session.stats?.correct} / {session.stats?.cardsStudied} correct
-            </p>
-            <button
-              onClick={session.restart}
-              className="px-6 py-3 bg-ink text-gold font-display rounded-lg"
-            >
-              Study Again
-            </button>
-          </div>
-        ) : session.state === 'flipped' ? (
-          <div>
-            <p className="font-display text-3xl">{session.currentCard?.label}</p>
-            <p className="text-ink/70 mt-3 max-w-xs">{session.currentCard?.overrideDesc ?? session.currentCard?.desc}</p>
-          </div>
+      {/* ── Top row: deck switcher + mode toggle ── */}
+      <div className="flex items-center justify-between mb-2">
+        {decks.length > 1 ? (
+          <DeckSwitcher decks={decks} activeDeck={activeDeck} />
         ) : (
-          <div onClick={session.flip} className="cursor-pointer w-full h-full flex flex-col items-center justify-center gap-4">
-            {session.currentCard?.img && (
-              <img src={session.currentCard.overrideImg ?? session.currentCard.img} alt={session.currentCard.label} className="max-h-48 object-contain" />
-            )}
-            <p className="text-sm text-ink/40">tap to reveal</p>
-          </div>
+          <span className="font-display text-sm text-ink/50">{activeDeck.name}</span>
         )}
+        <button
+          onClick={() => setMode(m => m === 'image-to-label' ? 'label-to-image' : 'image-to-label')}
+          className="text-xs text-ink/30 hover:text-ink/60 font-body transition-colors tracking-wider"
+          title={mode === 'image-to-label' ? 'Switch to label → image' : 'Switch to image → label'}
+        >
+          {mode === 'image-to-label' ? 'img → label' : 'label → img'}
+        </button>
       </div>
 
-      {/* TODO: <GradeButtons onGrade={session.grade} visible={session.state === 'flipped'} /> */}
-      {session.state === 'flipped' && (
-        <div className="grid grid-cols-4 gap-3 mt-4">
-          {(['Again', 'Hard', 'Good', 'Easy'] as const).map((label, i) => (
-            <button
-              key={label}
-              onClick={() => session.grade(i as 0|1|2|3)}
-              className="py-3 rounded-xl text-sm font-medium border"
-            >
-              {label}
-            </button>
-          ))}
-        </div>
+      {/* ── Progress bar ── */}
+      <ProgressBar current={session.index} total={session.total} />
+
+      {/* ── Flashcard ── */}
+      {session.currentCard && (
+        <Flashcard
+          card={session.currentCard}
+          mode={mode}
+          state={session.state === 'flipped' ? 'flipped' : 'studying'}
+          onFlip={session.flip}
+        />
       )}
+
+      {/* ── Grade buttons (appear after flip) ── */}
+      {session.currentCard && (
+        <GradeButtons
+          card={session.currentCard}
+          visible={session.state === 'flipped'}
+          onGrade={session.grade}
+        />
+      )}
+
+      {/* ── Keyboard hint ── */}
+      {session.state === 'studying' && (
+        <p className="text-center text-xs text-ink/20 font-body mt-5 tracking-widest select-none">
+          space to flip · 1 – 4 to grade
+        </p>
+      )}
+
     </div>
   )
 }
