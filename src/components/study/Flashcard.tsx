@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { Card, StudyMode } from '@/types'
 
 interface FlashcardProps {
@@ -32,14 +33,7 @@ export default function Flashcard({ card, mode, state, onFlip }: FlashcardProps)
         <div className="card-face absolute inset-0 rounded-card bg-parchment border border-gold/20 shadow-md overflow-hidden flex flex-col items-center justify-center gap-5 px-6 cursor-pointer">
           {mode === 'image-to-label' ? (
             <>
-              {imgSrc && (
-                <img
-                  src={imgSrc}
-                  alt={card.label}
-                  className="max-h-52 max-w-[78%] object-contain drop-shadow"
-                  draggable={false}
-                />
-              )}
+              <CardImage src={imgSrc} alt={card.label} dark={false} />
               <span className="text-[11px] text-ink/25 tracking-[0.25em] uppercase font-body select-none">
                 tap to reveal
               </span>
@@ -70,14 +64,7 @@ export default function Flashcard({ card, mode, state, onFlip }: FlashcardProps)
             </>
           ) : (
             <>
-              {imgSrc && (
-                <img
-                  src={imgSrc}
-                  alt={card.label}
-                  className="max-h-52 max-w-[78%] object-contain"
-                  draggable={false}
-                />
-              )}
+              <CardImage src={imgSrc} alt={card.label} dark={true} />
               <p className="font-display text-lg text-gold/70 tracking-widest text-center select-none">
                 {card.label}
               </p>
@@ -86,6 +73,42 @@ export default function Flashcard({ card, mode, state, onFlip }: FlashcardProps)
         </div>
 
       </div>
+    </div>
+  )
+}
+
+function CardImage({ src, alt, dark }: { src: string; alt: string; dark: boolean }) {
+  const [status, setStatus] = useState<'loading' | 'loaded' | 'error'>('loading')
+
+  return (
+    <div className="relative flex items-center justify-center max-h-52 max-w-[78%] min-w-[80px] min-h-[80px]">
+      {/* Skeleton shown while loading */}
+      {status === 'loading' && (
+        <div className={`absolute inset-0 rounded-lg animate-pulse ${dark ? 'bg-white/5' : 'bg-ink/5'}`} />
+      )}
+
+      {/* Error placeholder */}
+      {status === 'error' && (
+        <div className={`flex flex-col items-center gap-2 ${dark ? 'text-gold/30' : 'text-ink/20'}`}>
+          <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <path d="M3 15l5-5 4 4 3-3 6 6" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+          </svg>
+          <span className="text-xs font-body tracking-wide">{alt}</span>
+        </div>
+      )}
+
+      <img
+        src={src}
+        alt={alt}
+        draggable={false}
+        onLoad={() => setStatus('loaded')}
+        onError={() => setStatus('error')}
+        className={`max-h-52 max-w-full object-contain drop-shadow transition-opacity duration-300 ${
+          status === 'loaded' ? 'opacity-100' : 'opacity-0 absolute'
+        }`}
+      />
     </div>
   )
 }
