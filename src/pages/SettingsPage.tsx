@@ -58,7 +58,7 @@ export default function SettingsPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="font-display text-xl text-ink tracking-wide">Settings</h1>
+      <h1 className="font-display text-xl text-ink dark:text-parchment tracking-wide">Settings</h1>
 
       {/* ── Study preferences ── */}
       <Section title="Study">
@@ -89,7 +89,9 @@ export default function SettingsPage() {
       <Section title="Import Deck">
         <div
           className={`border-2 border-dashed rounded-card p-8 flex flex-col items-center gap-3 cursor-pointer transition-colors ${
-            dragging ? 'border-gold bg-gold/5' : 'border-ink/15 hover:border-gold/50'
+            dragging
+              ? 'border-gold bg-gold/5'
+              : 'border-ink/15 dark:border-parchment/15 hover:border-gold/50'
           }`}
           onDragOver={e => { e.preventDefault(); setDragging(true) }}
           onDragLeave={() => setDragging(false)}
@@ -105,12 +107,12 @@ export default function SettingsPage() {
           onKeyDown={e => e.key === 'Enter' && fileRef.current?.click()}
           aria-label="Import deck JSON file"
         >
-          <svg className="w-8 h-8 text-ink/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+          <svg className="w-8 h-8 text-ink/20 dark:text-parchment/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
             <path d="M12 16V4m0 0L8 8m4-4 4 4" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M4 20h16" strokeLinecap="round" />
           </svg>
-          <p className="text-sm text-ink/40 font-body text-center">
-            Drop a deck <code className="text-xs bg-ink/5 px-1 py-0.5 rounded">.json</code> file here, or click to browse
+          <p className="text-sm text-ink/40 dark:text-parchment/40 font-body text-center">
+            Drop a deck <code className="text-xs bg-ink/5 dark:bg-parchment/10 px-1 py-0.5 rounded">.json</code> file here, or click to browse
           </p>
         </div>
         <input
@@ -118,7 +120,7 @@ export default function SettingsPage() {
           onChange={e => { const f = e.target.files?.[0]; if (f) handleDeckFile(f); e.target.value = '' }}
         />
         {importMsg && (
-          <p className={`text-sm font-body px-1 ${importMsg.ok ? 'text-emerald-700' : 'text-red-600'}`}>
+          <p className={`text-sm font-body px-1 ${importMsg.ok ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'}`}>
             {importMsg.text}
           </p>
         )}
@@ -135,7 +137,7 @@ export default function SettingsPage() {
           </button>
         </Row>
         <Row label="Import progress">
-          <label className="px-4 py-1.5 border border-ink/15 text-ink/50 font-display text-xs rounded-lg hover:border-gold/40 hover:text-ink/70 transition-colors tracking-wide cursor-pointer">
+          <label className="px-4 py-1.5 border border-ink/15 dark:border-parchment/15 text-ink/50 dark:text-parchment/50 font-display text-xs rounded-lg hover:border-gold/40 hover:text-ink/70 dark:hover:text-parchment/70 transition-colors tracking-wide cursor-pointer">
             Choose file
             <input type="file" accept=".json" className="hidden"
               onChange={e => { const f = e.target.files?.[0]; if (f) handleImportProgress(f); if (e.target) e.target.value = '' }}
@@ -145,18 +147,18 @@ export default function SettingsPage() {
         <Row label="Reset all progress">
           {clearConfirm ? (
             <div className="flex items-center gap-2">
-              <span className="text-xs text-red-600 font-body">Are you sure?</span>
+              <span className="text-xs text-red-600 dark:text-red-400 font-body">Are you sure?</span>
               <button onClick={handleClearData} className="px-3 py-1 bg-red-500 text-white font-body text-xs rounded-lg hover:bg-red-600">
                 Reset
               </button>
-              <button onClick={() => setClearConfirm(false)} className="px-3 py-1 border border-ink/15 text-ink/50 font-body text-xs rounded-lg hover:border-ink/30">
+              <button onClick={() => setClearConfirm(false)} className="px-3 py-1 border border-ink/15 dark:border-parchment/15 text-ink/50 dark:text-parchment/50 font-body text-xs rounded-lg">
                 Cancel
               </button>
             </div>
           ) : (
             <button
               onClick={() => setClearConfirm(true)}
-              className="px-4 py-1.5 border border-red-200 text-red-400 font-display text-xs rounded-lg hover:border-red-400 hover:text-red-600 transition-colors tracking-wide"
+              className="px-4 py-1.5 border border-red-200 dark:border-red-800 text-red-400 font-display text-xs rounded-lg hover:border-red-400 hover:text-red-600 transition-colors tracking-wide"
             >
               Reset
             </button>
@@ -166,7 +168,7 @@ export default function SettingsPage() {
 
       {/* ── About ── */}
       <Section title="About">
-        <p className="text-sm text-ink/40 font-body">
+        <p className="text-sm text-ink/40 dark:text-parchment/40 font-body">
           Kairos v0.1 · Spaced repetition powered by SM-2 · Data stored locally in your browser.
         </p>
       </Section>
@@ -176,8 +178,8 @@ export default function SettingsPage() {
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-card border border-gold/20 bg-parchment p-5 shadow-sm flex flex-col gap-4">
-      <p className="font-display text-xs text-ink/40 tracking-widest uppercase">{title}</p>
+    <div className="rounded-card border border-gold/20 bg-parchment dark:bg-ink-mid p-5 shadow-sm flex flex-col gap-4">
+      <p className="font-display text-xs text-ink/40 dark:text-parchment/40 tracking-widest uppercase">{title}</p>
       {children}
     </div>
   )
@@ -186,7 +188,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex items-center justify-between gap-4">
-      <span className="text-sm text-ink/60 font-body">{label}</span>
+      <span className="text-sm text-ink/60 dark:text-parchment/60 font-body">{label}</span>
       {children}
     </div>
   )
@@ -198,15 +200,15 @@ function SegmentedControl({ options, value, onChange }: {
   onChange: (v: string) => void
 }) {
   return (
-    <div className="flex rounded-lg border border-ink/15 overflow-hidden">
+    <div className="flex rounded-lg border border-ink/15 dark:border-parchment/15 overflow-hidden">
       {options.map(opt => (
         <button
           key={opt.value}
           onClick={() => onChange(opt.value)}
           className={`px-3 py-1.5 text-xs font-body transition-colors ${
             value === opt.value
-              ? 'bg-ink text-gold'
-              : 'text-ink/50 hover:text-ink/80 hover:bg-ink/5'
+              ? 'bg-ink dark:bg-parchment text-gold dark:text-ink'
+              : 'text-ink/50 dark:text-parchment/50 hover:text-ink/80 dark:hover:text-parchment/80 hover:bg-ink/5 dark:hover:bg-parchment/5'
           }`}
         >
           {opt.label}

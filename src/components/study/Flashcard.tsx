@@ -30,20 +30,20 @@ export default function Flashcard({ card, mode, state, onFlip }: FlashcardProps)
       <div className="card-inner relative w-full h-full">
 
         {/* ── Front face ── */}
-        <div className="card-face absolute inset-0 rounded-card bg-parchment border border-gold/20 shadow-md overflow-hidden flex flex-col items-center justify-center gap-5 px-6 cursor-pointer">
+        <div className="card-face absolute inset-0 rounded-card bg-parchment dark:bg-ink-mid border border-gold/20 shadow-md overflow-hidden flex flex-col items-center justify-center gap-5 px-6 cursor-pointer">
           {mode === 'image-to-label' ? (
             <>
               <CardImage src={imgSrc} alt={card.label} dark={false} />
-              <span className="text-[11px] text-ink/25 tracking-[0.25em] uppercase font-body select-none">
+              <span className="text-[11px] text-ink/25 dark:text-parchment/25 tracking-[0.25em] uppercase font-body select-none">
                 tap to reveal
               </span>
             </>
           ) : (
             <>
-              <p className="font-display text-4xl text-ink tracking-wide text-center leading-tight select-none">
+              <p className="font-display text-4xl text-ink dark:text-parchment tracking-wide text-center leading-tight select-none">
                 {card.label}
               </p>
-              <span className="text-[11px] text-ink/25 tracking-[0.25em] uppercase font-body select-none">
+              <span className="text-[11px] text-ink/25 dark:text-parchment/25 tracking-[0.25em] uppercase font-body select-none">
                 tap to reveal
               </span>
             </>
@@ -81,15 +81,15 @@ function CardImage({ src, alt, dark }: { src: string; alt: string; dark: boolean
   const [status, setStatus] = useState<'loading' | 'loaded' | 'error'>('loading')
 
   return (
-    <div className="relative flex items-center justify-center max-h-52 max-w-[78%] min-w-[80px] min-h-[80px]">
+    <div className="relative flex items-center justify-center w-full max-h-56 min-h-[100px]">
       {/* Skeleton shown while loading */}
       {status === 'loading' && (
-        <div className={`absolute inset-0 rounded-lg animate-pulse ${dark ? 'bg-white/5' : 'bg-ink/5'}`} />
+        <div className={`absolute inset-0 rounded-lg animate-pulse ${dark ? 'bg-white/5' : 'bg-ink/5 dark:bg-parchment/5'}`} />
       )}
 
       {/* Error placeholder */}
       {status === 'error' && (
-        <div className={`flex flex-col items-center gap-2 ${dark ? 'text-gold/30' : 'text-ink/20'}`}>
+        <div className={`flex flex-col items-center gap-2 ${dark ? 'text-gold/30' : 'text-ink/20 dark:text-parchment/20'}`}>
           <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <path d="M3 15l5-5 4 4 3-3 6 6" />
@@ -105,7 +105,7 @@ function CardImage({ src, alt, dark }: { src: string; alt: string; dark: boolean
         draggable={false}
         onLoad={() => setStatus('loaded')}
         onError={() => setStatus('error')}
-        className={`max-h-52 max-w-full object-contain drop-shadow transition-opacity duration-300 ${
+        className={`max-h-56 max-w-full w-auto object-contain drop-shadow transition-opacity duration-300 ${
           status === 'loaded' ? 'opacity-100' : 'opacity-0 absolute'
         }`}
       />

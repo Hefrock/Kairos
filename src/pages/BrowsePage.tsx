@@ -15,7 +15,7 @@ export default function BrowsePage() {
 
   return (
     <div>
-      <h1 className="font-display text-xl text-ink tracking-wide mb-6">Browse Decks</h1>
+      <h1 className="font-display text-xl text-ink dark:text-parchment tracking-wide mb-6">Browse Decks</h1>
       <div className="flex flex-col gap-4">
         {decks.map(deck => (
           <DeckCard key={deck.id} deck={deck} stats={stats[deck.id]} />
@@ -30,22 +30,22 @@ function DeckCard({ deck, stats }: { deck: DeckMeta; stats?: DeckStats }) {
   const hasNew = (stats?.newCount ?? 0) > 0
 
   return (
-    <div className="rounded-card border border-gold/20 bg-parchment p-5 flex flex-col gap-3 shadow-sm hover:shadow-md hover:border-gold/40 transition-all">
+    <div className="rounded-card border border-gold/20 bg-parchment dark:bg-ink-mid p-5 flex flex-col gap-3 shadow-sm hover:shadow-md hover:border-gold/40 transition-all">
 
       {/* ── Top row: tag + count ── */}
       <div className="flex items-center justify-between">
         <span className="text-[11px] font-body tracking-widest text-gold/70 uppercase">
           {deck.tag}
         </span>
-        <span className="text-xs text-ink/30 font-body tabular-nums">
+        <span className="text-xs text-ink/30 dark:text-parchment/30 font-body tabular-nums">
           {deck.cards.length} cards
         </span>
       </div>
 
       {/* ── Deck name + description ── */}
       <div>
-        <h2 className="font-display text-lg text-ink tracking-wide leading-snug">{deck.name}</h2>
-        <p className="text-sm text-ink/50 font-body mt-0.5 line-clamp-2 leading-relaxed">
+        <h2 className="font-display text-lg text-ink dark:text-parchment tracking-wide leading-snug">{deck.name}</h2>
+        <p className="text-sm text-ink/50 dark:text-parchment/50 font-body mt-0.5 line-clamp-2 leading-relaxed">
           {deck.description}
         </p>
       </div>
@@ -59,14 +59,14 @@ function DeckCard({ deck, stats }: { deck: DeckMeta; stats?: DeckStats }) {
                 <Pill value={stats.dueCount} label="due" color="text-gold bg-gold/10 border-gold/30" />
               )}
               {stats.newCount > 0 && (
-                <Pill value={stats.newCount} label="new" color="text-ink/60 bg-ink/5 border-ink/15" />
+                <Pill value={stats.newCount} label="new" color="text-ink/60 dark:text-parchment/60 bg-ink/5 dark:bg-parchment/5 border-ink/15 dark:border-parchment/15" />
               )}
               {stats.learnedCount > 0 && (
-                <Pill value={stats.learnedCount} label="learned" color="text-emerald-700 bg-emerald-50 border-emerald-200" />
+                <Pill value={stats.learnedCount} label="learned" color="text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 border-emerald-200 dark:border-emerald-700" />
               )}
             </>
           ) : (
-            <span className="text-xs text-ink/20 font-body">—</span>
+            <span className="text-xs text-ink/20 dark:text-parchment/20 font-body">—</span>
           )}
         </div>
 
@@ -76,7 +76,7 @@ function DeckCard({ deck, stats }: { deck: DeckMeta; stats?: DeckStats }) {
             hasDue
               ? 'bg-gold text-ink hover:bg-gold/90'
               : hasNew
-              ? 'bg-ink text-gold hover:bg-ink-mid'
+              ? 'bg-ink dark:bg-parchment text-gold dark:text-ink hover:bg-ink-mid dark:hover:bg-parchment/90'
               : 'border border-gold/30 text-gold/70 hover:border-gold/60 hover:text-gold'
           }`}
         >

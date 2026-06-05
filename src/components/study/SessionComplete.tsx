@@ -30,30 +30,30 @@ export default function SessionComplete({ stats, deckName, onRestart }: SessionC
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span className="font-display text-2xl text-gold leading-none">{pct}%</span>
-          <span className="text-[10px] text-ink/40 font-body tracking-wide mt-0.5">correct</span>
+          <span className="text-[10px] text-ink/40 dark:text-parchment/40 font-body tracking-wide mt-0.5">correct</span>
         </div>
       </div>
 
       {/* Title */}
       <div>
-        <h2 className="font-display text-2xl text-ink tracking-wide">Session Complete</h2>
-        <p className="text-ink/40 text-sm font-body mt-1">{deckName}</p>
+        <h2 className="font-display text-2xl text-ink dark:text-parchment tracking-wide">Session Complete</h2>
+        <p className="text-ink/40 dark:text-parchment/40 text-sm font-body mt-1">{deckName}</p>
       </div>
 
       {/* Stats */}
       <div className="flex gap-6 items-center">
-        <Stat value={cardsStudied} label="studied" color="text-ink" />
-        <div className="w-px h-8 bg-ink/10" />
-        <Stat value={correct} label="correct" color="text-emerald-700" />
-        <div className="w-px h-8 bg-ink/10" />
-        <Stat value={again} label="again" color="text-red-500" />
+        <Stat value={cardsStudied} label="studied" color="text-ink dark:text-parchment" />
+        <div className="w-px h-8 bg-ink/10 dark:bg-parchment/10" />
+        <Stat value={correct} label="correct" color="text-emerald-700 dark:text-emerald-400" />
+        <div className="w-px h-8 bg-ink/10 dark:bg-parchment/10" />
+        <Stat value={again} label="again" color="text-red-500 dark:text-red-400" />
       </div>
 
       {/* Actions */}
       <div className="flex gap-3 mt-1">
         <button
           onClick={onRestart}
-          className="px-7 py-3 bg-ink text-gold font-display text-sm rounded-xl tracking-wide hover:bg-ink-mid transition-colors active:scale-95"
+          className="px-7 py-3 bg-ink dark:bg-parchment text-gold dark:text-ink font-display text-sm rounded-xl tracking-wide hover:bg-ink-mid dark:hover:bg-parchment/90 transition-colors active:scale-95"
         >
           Study Again
         </button>
@@ -72,7 +72,7 @@ function Stat({ value, label, color }: { value: number; label: string; color: st
   return (
     <div className="flex flex-col items-center gap-0.5">
       <span className={`font-display text-2xl ${color}`}>{value}</span>
-      <span className="text-xs text-ink/40 font-body">{label}</span>
+      <span className="text-xs text-ink/40 dark:text-parchment/40 font-body">{label}</span>
     </div>
   )
 }

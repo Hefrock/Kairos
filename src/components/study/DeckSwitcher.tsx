@@ -13,14 +13,14 @@ export default function DeckSwitcher({ decks, activeDeck }: DeckSwitcherProps) {
       <select
         value={activeDeck.id}
         onChange={e => navigate(`/study/${e.target.value}`)}
-        className="font-display text-sm text-ink bg-transparent border-none outline-none cursor-pointer group-hover:text-gold transition-colors appearance-none"
+        className="font-display text-sm text-ink dark:text-parchment bg-transparent border-none outline-none cursor-pointer group-hover:text-gold transition-colors appearance-none"
         aria-label="Select deck"
       >
         {decks.map(d => (
           <option key={d.id} value={d.id}>{d.name}</option>
         ))}
       </select>
-      <svg className="w-3 h-3 text-ink/30 group-hover:text-gold/60 transition-colors" viewBox="0 0 12 12" fill="currentColor" aria-hidden>
+      <svg className="w-3 h-3 text-ink/30 dark:text-parchment/30 group-hover:text-gold/60 transition-colors" viewBox="0 0 12 12" fill="currentColor" aria-hidden>
         <path d="M6 8 L2 4 L10 4 Z" />
       </svg>
     </label>

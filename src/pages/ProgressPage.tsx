@@ -22,31 +22,31 @@ export default function ProgressPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="font-display text-xl text-ink tracking-wide">Progress</h1>
+      <h1 className="font-display text-xl text-ink dark:text-parchment tracking-wide">Progress</h1>
 
       {/* ── Overview ring + key numbers ── */}
-      <div className="rounded-card border border-gold/20 bg-parchment p-5 flex items-center gap-6 shadow-sm">
+      <div className="rounded-card border border-gold/20 bg-parchment dark:bg-ink-mid p-5 flex items-center gap-6 shadow-sm">
         <ProgressRing pct={learnedPct} size={88} />
         <div className="flex-1 grid grid-cols-2 gap-x-6 gap-y-3">
-          <Stat value={stats.totalCards}   label="total cards" />
-          <Stat value={stats.dueCards}     label="due now"     accent={stats.dueCards > 0 ? 'gold' : undefined} />
-          <Stat value={stats.newCards}     label="not started" />
-          <Stat value={stats.masteredCards} label="mastered"   accent="emerald" />
+          <Stat value={stats.totalCards}    label="total cards" />
+          <Stat value={stats.dueCards}      label="due now"     accent={stats.dueCards > 0 ? 'gold' : undefined} />
+          <Stat value={stats.newCards}      label="not started" />
+          <Stat value={stats.masteredCards} label="mastered"    accent="emerald" />
         </div>
       </div>
 
       {/* ── Today row ── */}
-      <div className="rounded-card border border-gold/20 bg-parchment p-5 shadow-sm">
-        <p className="font-display text-xs text-ink/40 tracking-widest uppercase mb-3">Today</p>
+      <div className="rounded-card border border-gold/20 bg-parchment dark:bg-ink-mid p-5 shadow-sm">
+        <p className="font-display text-xs text-ink/40 dark:text-parchment/40 tracking-widest uppercase mb-3">Today</p>
         <div className="flex items-center gap-6">
           <div className="flex flex-col items-center gap-0.5">
-            <span className="font-display text-3xl text-ink">{stats.studiedToday}</span>
-            <span className="text-xs text-ink/40 font-body">cards reviewed</span>
+            <span className="font-display text-3xl text-ink dark:text-parchment">{stats.studiedToday}</span>
+            <span className="text-xs text-ink/40 dark:text-parchment/40 font-body">cards reviewed</span>
           </div>
-          <div className="w-px h-10 bg-ink/10" />
+          <div className="w-px h-10 bg-ink/10 dark:bg-parchment/10" />
           <div className="flex flex-col items-center gap-0.5">
             <span className="font-display text-3xl text-gold">{stats.streak}</span>
-            <span className="text-xs text-ink/40 font-body">day streak</span>
+            <span className="text-xs text-ink/40 dark:text-parchment/40 font-body">day streak</span>
           </div>
           {stats.dueCards > 0 && (
             <Link
@@ -61,7 +61,7 @@ export default function ProgressPage() {
 
       {/* ── Per-deck breakdown ── */}
       <div>
-        <p className="font-display text-xs text-ink/40 tracking-widest uppercase mb-3">Decks</p>
+        <p className="font-display text-xs text-ink/40 dark:text-parchment/40 tracking-widest uppercase mb-3">Decks</p>
         <div className="flex flex-col gap-3">
           {decks.map(deck => (
             <DeckRow key={deck.id} deck={deck} stats={deckStats[deck.id]} />
@@ -78,24 +78,24 @@ function DeckRow({ deck, stats }: { deck: DeckMeta; stats?: DeckStats }) {
   const pct = total > 0 ? Math.round((learned / total) * 100) : 0
 
   return (
-    <div className="rounded-card border border-gold/20 bg-parchment px-5 py-4 flex items-center gap-4 shadow-sm">
+    <div className="rounded-card border border-gold/20 bg-parchment dark:bg-ink-mid px-5 py-4 flex items-center gap-4 shadow-sm">
       <div className="flex-1 min-w-0">
-        <p className="font-display text-sm text-ink truncate">{deck.name}</p>
+        <p className="font-display text-sm text-ink dark:text-parchment truncate">{deck.name}</p>
         <div className="flex items-center gap-2 mt-2">
-          <div className="flex-1 h-1 bg-ink/8 rounded-full overflow-hidden">
+          <div className="flex-1 h-1 bg-ink/8 dark:bg-parchment/10 rounded-full overflow-hidden">
             <div
               className="h-full bg-gold rounded-full transition-all duration-500"
               style={{ width: `${pct}%` }}
             />
           </div>
-          <span className="text-xs text-ink/30 font-body tabular-nums shrink-0">{pct}%</span>
+          <span className="text-xs text-ink/30 dark:text-parchment/30 font-body tabular-nums shrink-0">{pct}%</span>
         </div>
       </div>
       <div className="flex gap-3 text-right shrink-0">
         {(stats?.dueCount ?? 0) > 0 && (
           <span className="text-xs font-body text-gold tabular-nums">{stats!.dueCount} due</span>
         )}
-        <span className="text-xs font-body text-ink/30 tabular-nums">{learned}/{total}</span>
+        <span className="text-xs font-body text-ink/30 dark:text-parchment/30 tabular-nums">{learned}/{total}</span>
       </div>
     </div>
   )
@@ -105,12 +105,12 @@ function Stat({ value, label, accent }: { value: number; label: string; accent?:
   const color = accent === 'gold'
     ? 'text-gold'
     : accent === 'emerald'
-    ? 'text-emerald-700'
-    : 'text-ink'
+    ? 'text-emerald-700 dark:text-emerald-400'
+    : 'text-ink dark:text-parchment'
   return (
     <div>
       <p className={`font-display text-2xl leading-none ${color}`}>{value}</p>
-      <p className="text-xs text-ink/40 font-body mt-0.5">{label}</p>
+      <p className="text-xs text-ink/40 dark:text-parchment/40 font-body mt-0.5">{label}</p>
     </div>
   )
 }
@@ -133,7 +133,7 @@ function ProgressRing({ pct, size }: { pct: number; size: number }) {
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="font-display text-xl text-gold leading-none">{pct}%</span>
-        <span className="text-[10px] text-ink/40 font-body mt-0.5">learned</span>
+        <span className="text-[10px] text-ink/40 dark:text-parchment/40 font-body mt-0.5">learned</span>
       </div>
     </div>
   )

@@ -26,7 +26,6 @@ function line(x1,y1,x2,y2,stroke,sw) { return `<line x1="${x1}" y1="${y1}" x2="$
 function text(t, x, y, size, fill, anchor='middle', font='Georgia, serif', weight='bold') {
   return `<text x="${x}" y="${y}" font-family="${font}" font-size="${size}" text-anchor="${anchor}" dominant-baseline="central" fill="${fill}" font-weight="${weight}">${t}</text>`
 }
-// Checkerboard n×n
 function checker(cols, rows, c1, c2) {
   const cw = 200 / cols, ch = 200 / rows
   let s = ''
@@ -35,12 +34,10 @@ function checker(cols, rows, c1, c2) {
       s += rect(c * cw, r * ch, cw, ch, (r + c) % 2 === 0 ? c1 : c2)
   return s
 }
-// Horizontal stripes
 function hstripes(...colors) {
   const h = 200 / colors.length
   return colors.map((c, i) => rect(0, i * h, 200, h, c)).join('')
 }
-// Vertical stripes
 function vstripes(...colors) {
   const w = 200 / colors.length
   return colors.map((c, i) => rect(i * w, 0, w, 200, c)).join('')
@@ -49,294 +46,384 @@ function vstripes(...colors) {
 // ── Nautical ICS flag designs ──────────────────────────────────────────────
 
 const FLAGS = {
-  // Alpha (A) – white + blue, swallowtail (notch cut from fly side)
   'flag-alpha': () => {
     const body = `${rect(0,0,100,200,'#fff')}${rect(100,0,100,200,'#00529b')}`
-    const notch = poly('200,80 160,100 200,120', '#fff') // swallowtail notch
+    const notch = poly('200,80 160,100 200,120', '#fff')
     return svg(body + notch)
   },
-  // Bravo (B) – solid red, swallowtail
   'flag-bravo': () => svg(rect(0,0,200,200,'#d0021b') + poly('200,80 160,100 200,120','#fff')),
-  // Charlie (C) – 5 horizontal stripes: blue/white/red/white/blue
   'flag-charlie': () => svg(hstripes('#00529b','#fff','#d0021b','#fff','#00529b')),
-  // Delta (D) – yellow body, blue cross
   'flag-delta': () => svg(rect(0,0,200,200,'#f5a623') + rect(80,0,40,200,'#00529b') + rect(0,80,200,40,'#00529b')),
-  // Echo (E) – red top, blue bottom (horizontal halves)
   'flag-echo': () => svg(hstripes('#d0021b','#00529b')),
-  // Foxtrot (F) – white with red diamond in centre
   'flag-foxtrot': () => svg(rect(0,0,200,200,'#fff') + poly('100,40 160,100 100,160 40,100','#d0021b')),
-  // Golf (G) – 4 quadrants alternating yellow/blue
   'flag-golf': () => svg(rect(0,0,100,100,'#f5a623')+rect(100,0,100,100,'#00529b')+rect(0,100,100,100,'#00529b')+rect(100,100,100,100,'#f5a623')),
-  // Hotel (H) – vertical halves: white left, red right
   'flag-hotel': () => svg(vstripes('#fff','#d0021b')),
-  // India (I) – yellow with black circle
   'flag-india': () => svg(rect(0,0,200,200,'#f5a623') + circle(100,100,50,'#222')),
-  // Juliet (J) – 3 horizontal stripes: blue/white/blue
   'flag-juliet': () => svg(hstripes('#00529b','#fff','#00529b')),
-  // Kilo (K) – vertical halves: yellow left, blue right
   'flag-kilo': () => svg(vstripes('#f5a623','#00529b')),
-  // Lima (L) – 4 quadrants: yellow TL+BR, black TR+BL
   'flag-lima': () => svg(rect(0,0,100,100,'#f5a623')+rect(100,0,100,100,'#222')+rect(0,100,100,100,'#222')+rect(100,100,100,100,'#f5a623')),
-  // Mike (M) – white top, blue bottom
   'flag-mike': () => svg(hstripes('#fff','#00529b')),
-  // November (N) – 4×4 blue/white checkerboard
   'flag-november': () => svg(checker(4,4,'#00529b','#fff')),
-  // Oscar (O) – diagonal split: red upper-left, yellow lower-right
   'flag-oscar': () => svg(rect(0,0,200,200,'#f5a623') + poly('0,0 200,0 0,200','#d0021b')),
-  // Papa (P) – blue border, white centre rectangle
   'flag-papa': () => svg(rect(0,0,200,200,'#00529b') + rect(40,40,120,120,'#fff')),
-  // Quebec (Q) – solid yellow
   'flag-quebec': () => svg(rect(0,0,200,200,'#f5a623')),
-  // Romeo (R) – 3 vertical stripes: red/yellow/red
   'flag-romeo': () => svg(vstripes('#d0021b','#f5a623','#d0021b')),
-  // Sierra (S) – white with blue cross
   'flag-sierra': () => svg(rect(0,0,200,200,'#fff') + rect(80,0,40,200,'#00529b') + rect(0,80,200,40,'#00529b')),
-  // Tango (T) – 3 vertical stripes: red/white/red
   'flag-tango': () => svg(vstripes('#d0021b','#fff','#d0021b')),
-  // Uniform (U) – white with red cross (horizontal/vertical)
   'flag-uniform': () => svg(rect(0,0,200,200,'#fff') + rect(85,0,30,200,'#d0021b') + rect(0,85,200,30,'#d0021b')),
-  // Victor (V) – white with red X (diagonal cross)
   'flag-victor': () => svg(rect(0,0,200,200,'#fff') + line(0,0,200,200,'#d0021b',36) + line(200,0,0,200,'#d0021b',36)),
-  // Whiskey (W) – red, white, red horizontal
   'flag-whiskey': () => svg(hstripes('#d0021b','#fff','#d0021b')),
-  // X-ray (X) – blue/white/blue horizontal with black X
   'flag-xray': () => svg(hstripes('#00529b','#fff','#00529b') + line(0,0,200,200,'#222',30) + line(200,0,0,200,'#222',30)),
-  // Yankee (Y) – yellow/red diagonal stripes (checkerboard style)
   'flag-yankee': () => svg(checker(4,4,'#d0021b','#f5a623')),
-  // Zulu (Z) – 4 quadrants: black TL, blue TR, red BL, yellow BR
   'flag-zulu': () => svg(rect(0,0,100,100,'#222')+rect(100,0,100,100,'#00529b')+rect(0,100,100,100,'#d0021b')+rect(100,100,100,100,'#f5a623')),
 }
 
-// ── ASL hand sign SVG drawings ─────────────────────────────────────────────
-// Schematic front-of-hand view, right hand.
-// Coordinate system: 200×200 viewBox.
-// Palm base: x=60 y=118 w=80 h=62 rx=18
-// Finger x-centres: pinky=76 ring=91 middle=106 index=121
-// Extended finger tops (anatomical): index≈62 middle≈55 ring≈62 pinky≈72
+// ── Realistic ASL hand sign SVGs ───────────────────────────────────────────
+// Front-of-right-hand view. Each letter drawn with bezier-curve fingers,
+// skin-tone gradient, proper palm anatomy, and fingernail details.
 
-const SK  = '#f5d5a5'   // skin
-const SO  = '#c8956a'   // skin outline / shadow
-const NL  = '#f8ece0'   // nail highlight
-const HBG = '#f7f3eb'   // parchment background
+const SO  = '#a06030'   // skin outline
+const NL  = '#f9ede0'   // nail fill
+const HBG = '#1a1a2e'   // dark parchment background (matches dark mode)
 
-const hRnd = (x,y,w,h,rx,f=SK,s=SO,sw=1.5) =>
-  `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="${f}" stroke="${s}" stroke-width="${sw}"/>`
-const hEll = (cx,cy,rx,ry,f=SK,s=SO,sw=1.5) =>
-  `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="${f}" stroke="${s}" stroke-width="${sw}"/>`
-const hPth = (d,f=SK,s=SO,sw=1.5) =>
-  `<path d="${d}" fill="${f}" stroke="${s}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round"/>`
-const hNail = (cx,y) =>
-  `<ellipse cx="${cx}" cy="${y+5}" rx="4" ry="3" fill="${NL}" stroke="${SO}" stroke-width="1"/>`
+// SVG defs: skin gradient
+const DEFS = `<defs>
+  <linearGradient id="sk" x1="0.25" y1="0" x2="0.75" y2="1">
+    <stop offset="0%" stop-color="#fdd9b5"/>
+    <stop offset="55%" stop-color="#f0a870"/>
+    <stop offset="100%" stop-color="#d98050"/>
+  </linearGradient>
+  <linearGradient id="skH" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#f0a870"/>
+    <stop offset="100%" stop-color="#d98050"/>
+  </linearGradient>
+</defs>`
 
-const PALM = hRnd(60,118,80,62,18)
+const F = 'url(#sk)'    // standard fill
+const FH = 'url(#skH)'  // horizontal fill (for sideways hand)
 
-// Finger x-centres
-const FP=76, FR=91, FM=106, FI=121
+// Smooth tapered finger: cx, tipY, baseY, lean, baseWidth, tipWidth
+function mkF(cx, tipY, baseY, lean=0, bw=13, tw=8.5) {
+  const r = tw / 2
+  const span = baseY - tipY
+  const c1y = baseY - span * 0.28
+  const c2y = baseY - span * 0.72
+  const ltx = cx - tw/2 + lean, rtx = cx + tw/2 + lean
+  return `<path d="M ${cx-bw/2},${baseY} C ${cx-bw/2},${c1y} ${ltx},${c2y} ${ltx},${tipY+r} Q ${cx+lean},${tipY-r*0.5} ${rtx},${tipY+r} C ${rtx},${c2y} ${cx+bw/2},${c1y} ${cx+bw/2},${baseY} Z" fill="${F}" stroke="${SO}" stroke-width="1.2" stroke-linejoin="round"/>`
+}
 
-// Extended finger column: cx, top y, base y
-const ext = (cx,top,bot=130) => hRnd(cx-8,top,16,bot-top,8)
+// Horizontal finger (for G, H, P, Q): baseX, tipX, cy, height
+function mkFh(baseX, tipX, cy, h=13) {
+  const r = h * 0.38
+  const span = tipX - baseX
+  const c1x = baseX + span * 0.28, c2x = baseX + span * 0.72
+  return `<path d="M ${baseX},${cy-h/2} C ${c1x},${cy-h/2} ${c2x},${cy-r} ${tipX-r},${cy-r} Q ${tipX+r*0.4},${cy} ${tipX-r},${cy+r} C ${c2x},${cy+h/2} ${c1x},${cy+h/2} ${baseX},${cy+h/2} Z" fill="${FH}" stroke="${SO}" stroke-width="1.2" stroke-linejoin="round"/>`
+}
 
-// Folded knuckle bump at top of palm
-const knu = (cx) => hEll(cx,121,8.5,6)
+// Nail on fingertip
+function mkN(cx, tipY, lean=0) {
+  return `<ellipse cx="${cx+lean}" cy="${tipY+1}" rx="3.8" ry="3" fill="${NL}" stroke="${SO}" stroke-width="0.7"/>`
+}
 
-// Thumb variants
-const thR    = () => hRnd(133,126,30,17,8)    // pointing right
-const thU    = () => hRnd(44,98,16,38,8)      // pointing up on left side
-const thFold = () => hRnd(68,135,26,14,7)     // folded across palm front
-const thIn   = () => hRnd(80,130,16,12,6)     // tucked inside fist
-const thOver = () => hRnd(62,112,36,14,7)     // draped over closed fist (S)
-const thBetw = () => hRnd(108,112,17,16,7)    // peeking between index+middle (T)
+// Nail on horizontal fingertip
+function mkNh(tipX, cy) {
+  return `<ellipse cx="${tipX-1}" cy="${cy}" rx="3" ry="3.8" fill="${NL}" stroke="${SO}" stroke-width="0.7"/>`
+}
+
+// Joint crease line
+function mkJ(cx, y, lean=0, hw=5) {
+  return `<path d="M ${cx-hw+lean},${y} Q ${cx+lean},${y+1.5} ${cx+hw+lean},${y}" fill="none" stroke="${SO}" stroke-width="0.7" opacity="0.5"/>`
+}
+
+// Knuckle bump (folded finger) at top of palm
+function mkK(cx, baseY, bw=13) {
+  const h = 18
+  return `<path d="M ${cx-bw/2},${baseY} C ${cx-bw/2},${baseY-h*0.55} ${cx-bw*0.25},${baseY-h} ${cx},${baseY-h} C ${cx+bw*0.25},${baseY-h} ${cx+bw/2},${baseY-h*0.55} ${cx+bw/2},${baseY} Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+}
+
+// Claw-bent finger: shorter, top curves forward
+function mkC(cx, baseY, bw=13) {
+  const h = 32
+  return `<path d="M ${cx-bw/2},${baseY} C ${cx-bw/2},${baseY-h*0.5} ${cx+bw*0.5},${baseY-h*0.8} ${cx+bw*0.6},${baseY-h} Q ${cx+bw*0.7},${baseY-h*0.85} ${cx+bw/2},${baseY} Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+}
+
+// Palm (natural trapezoidal shape, front of hand)
+const PALM = `<path d="M 56,182 Q 57,192 100,194 Q 143,192 144,182 L 146,126 Q 135,112 121,110 Q 107,108 93,111 Q 76,114 63,124 Q 56,130 56,182 Z" fill="${F}" stroke="${SO}" stroke-width="1.5"/>`
+
+// Sideways palm (for G, H, P, Q)
+const PALM_SIDE = `<path d="M 64,86 Q 64,75 74,70 L 128,70 Q 140,72 140,84 L 140,116 Q 138,128 126,130 L 74,130 Q 62,128 62,116 Z" fill="${FH}" stroke="${SO}" stroke-width="1.5"/>`
+
+// Finger x-centres and base y (anatomical knuckle line)
+const [FP, FR, FM, FI] = [76, 91, 106, 121]    // pinky ring middle index
+const [FPb, FRb, FMb, FIb] = [133, 130, 127, 130]  // base y
+const [FPt, FRt, FMt, FIt] = [75, 63, 56, 63]      // extended tip y
+
+// ── Thumb variants ──────────────────────────────────────────────────────────
+
+// Thumb pointing right (A, L, Y)
+function thumbR(baseX=136, cy=132, len=32) {
+  return mkFh(baseX, baseX+len, cy, 16) + mkNh(baseX+len, cy)
+}
+
+// Thumb pointing up on left side of palm (K, D-contact)
+function thumbU(cx=52, tipY=80, baseY=132) {
+  return mkF(cx, tipY, baseY, 0, 15, 10) + mkN(cx, tipY)
+}
+
+// Thumb folded across lower palm face (B, I, J, U, V, W, R, Z)
+function thumbFold() {
+  return `<path d="M 62,142 C 62,134 67,130 74,130 L 93,130 Q 99,132 99,140 Q 99,147 93,148 L 74,148 C 67,148 62,145 62,142 Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+}
+
+// Thumb draped over closed fist (S)
+function thumbOver() {
+  return `<path d="M 56,118 C 56,111 60,108 66,108 L 95,108 Q 101,110 101,118 Q 101,126 95,127 L 66,127 C 60,127 56,124 56,118 Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+}
+
+// Thumb between index + middle fingers (T)
+function thumbBetween() {
+  return `<path d="M 107,118 C 107,112 111,109 116,109 L 128,109 Q 133,111 133,118 Q 133,125 128,126 L 116,126 C 111,126 107,123 107,118 Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+}
+
+// Thumb touching index side (D — small ball)
+function thumbTipD() {
+  return `<ellipse cx="132" cy="86" rx="9" ry="9" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+}
+
+// Thumb tucked inside fist (E)
+function thumbTuck() {
+  return `<path d="M 76,138 C 74,133 76,130 80,130 L 95,130 Q 100,132 100,138 Q 100,143 95,144 L 80,144 C 76,143 76,141 76,138 Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+}
+
+// ── Compose letters ────────────────────────────────────────────────────────
 
 function aslHand(letter) {
   const bg = `<rect width="200" height="200" fill="${HBG}"/>`
   let s
 
   switch (letter) {
-    case 'A':
-      // Closed fist, thumb resting on right side of index
-      s = PALM + knu(FP)+knu(FR)+knu(FM)+knu(FI) + thR()
-      break
 
-    case 'B':
-      // All 4 fingers extended, thumb folded across palm
-      s = ext(FP,72)+hNail(FP,72) + ext(FR,62)+hNail(FR,62) +
-          ext(FM,55)+hNail(FM,55) + ext(FI,62)+hNail(FI,62) +
-          PALM + thFold()
+    case 'A': {
+      // Closed fist – all knuckles, thumb along right side
+      const fingers = mkK(FP,FPb) + mkK(FR,FRb) + mkK(FM,FMb) + mkK(FI,FIb)
+      s = fingers + PALM + thumbR()
       break
+    }
 
-    case 'C':
-      // C arc — thick stroke forming an open C facing right
-      s = hPth('M 148,72 Q 175,100 148,133 Q 128,162 100,165 Q 68,165 47,140 Q 28,112 34,80 Q 48,46 80,37 Q 110,28 140,48','none',SO,16) +
-          hPth('M 148,72 Q 175,100 148,133 Q 128,162 100,165 Q 68,165 47,140 Q 28,112 34,80 Q 48,46 80,37 Q 110,28 140,48','none',SK,10)
+    case 'B': {
+      // 4 fingers fully extended, thumb folded across
+      const ext = mkF(FP,FPt,FPb)+mkN(FP,FPt) + mkF(FR,FRt,FRb)+mkN(FR,FRt) +
+                  mkF(FM,FMt,FMb)+mkN(FM,FMt) + mkF(FI,FIt,FIb)+mkN(FI,FIt)
+      const joints = mkJ(FP,108) + mkJ(FR,100) + mkJ(FM,96) + mkJ(FI,100)
+      s = ext + joints + PALM + thumbFold()
       break
+    }
 
-    case 'D':
-      // Index up; ring/middle/pinky curl and touch thumb tip
-      s = PALM + knu(FP)+knu(FR)+knu(FM) +
-          ext(FI,62)+hNail(FI,62) +
-          hEll(133,87,9,9)   // thumb tip touching index side
+    case 'C': {
+      // C arc — open to the right
+      s = bg +
+        `<path d="M 152,72 Q 178,100 152,134 Q 132,165 100,168 Q 66,168 44,140 Q 24,110 32,76 Q 46,44 78,36 Q 110,28 140,48" fill="none" stroke="${SO}" stroke-width="18" stroke-linecap="round"/>` +
+        `<path d="M 152,72 Q 178,100 152,134 Q 132,165 100,168 Q 66,168 44,140 Q 24,110 32,76 Q 46,44 78,36 Q 110,28 140,48" fill="none" stroke="url(#sk)" stroke-width="12" stroke-linecap="round"/>`
+      return svg(DEFS + s)
+    }
+
+    case 'D': {
+      // Index extended, others curled, thumb tip touches index
+      const idx = mkF(FI,FIt,FIb) + mkN(FI,FIt) + mkJ(FI,98)
+      s = mkK(FP,FPb) + mkK(FR,FRb) + mkK(FM,FMb) + idx + PALM + thumbTipD()
       break
+    }
 
-    case 'E':
-      // All 4 fingers bent forward (claw), thumb tucked under
-      s = ext(FP,100)+ext(FR,96)+ext(FM,94)+ext(FI,96) + PALM + thIn()
+    case 'E': {
+      // All fingers bent in claw, thumb tucked
+      s = mkC(FP,FPb) + mkC(FR,FRb) + mkC(FM,FMb) + mkC(FI,FIb) + PALM + thumbTuck()
       break
+    }
 
-    case 'F':
-      // Index+thumb make OK circle; middle+ring+pinky extended
-      s = ext(FP,72)+hNail(FP,72) + ext(FR,62)+hNail(FR,62) +
-          ext(FM,55)+hNail(FM,55) + PALM +
-          `<circle cx="128" cy="92" r="16" fill="none" stroke="${SO}" stroke-width="14"/>` +
-          `<circle cx="128" cy="92" r="16" fill="none" stroke="${SK}" stroke-width="8"/>`
+    case 'F': {
+      // Middle/ring/pinky extended; index+thumb make OK circle
+      const ext = mkF(FP,FPt,FPb)+mkN(FP,FPt) + mkF(FR,FRt,FRb)+mkN(FR,FRt) +
+                  mkF(FM,FMt,FMb)+mkN(FM,FMt)
+      s = ext + PALM +
+        `<circle cx="128" cy="90" r="17" fill="none" stroke="${SO}" stroke-width="15"/>` +
+        `<circle cx="128" cy="90" r="17" fill="none" stroke="${F}" stroke-width="9"/>`
       break
+    }
 
-    case 'G':
-      // Hand sideways: index + thumb pointing right
-      s = hRnd(68,88,70,36,16) +   // horizontal palm
-          hRnd(136,82,38,17,8) +   // index pointing right
-          hRnd(136,103,30,14,7)    // thumb parallel right
+    case 'G': {
+      // Sideways hand: index pointing right, thumb below
+      s = PALM_SIDE +
+          mkFh(138,175,82,14) + mkNh(175,82) +       // index
+          mkFh(136,165,100,13)                         // thumb
       break
+    }
 
-    case 'H':
-      // Hand sideways: index + middle pointing right
-      s = hRnd(68,85,70,42,16) +
-          hRnd(136,78,38,17,8) +   // index right
-          hRnd(136,97,38,17,8)     // middle right
+    case 'H': {
+      // Sideways: index + middle pointing right
+      s = PALM_SIDE +
+          mkFh(138,176,76,14) + mkNh(176,76) +   // index
+          mkFh(138,176,94,14) + mkNh(176,94)     // middle
       break
+    }
 
-    case 'I':
+    case 'I': {
       // Only pinky extended
-      s = PALM + knu(FR)+knu(FM)+knu(FI) + ext(FP,72)+hNail(FP,72) + thFold()
+      s = mkK(FR,FRb) + mkK(FM,FMb) + mkK(FI,FIb) +
+          mkF(FP,FPt,FPb)+mkN(FP,FPt)+mkJ(FP,105) +
+          PALM + thumbFold()
       break
+    }
 
-    case 'J':
-      // Same static shape as I (J adds a traced motion)
-      s = PALM + knu(FR)+knu(FM)+knu(FI) + ext(FP,72)+hNail(FP,72) + thFold()
+    case 'J': {
+      // Same static shape as I (J adds traced J motion)
+      s = mkK(FR,FRb) + mkK(FM,FMb) + mkK(FI,FIb) +
+          mkF(FP,FPt,FPb)+mkN(FP,FPt)+mkJ(FP,105) +
+          PALM + thumbFold()
       break
+    }
 
-    case 'K':
-      // Index + middle up, thumb between them pointing up
-      s = PALM + knu(FP)+knu(FR) +
-          ext(FM,60)+hNail(FM,60) + ext(FI,55)+hNail(FI,55) +
-          thU()
+    case 'K': {
+      // Index + middle extended, thumb up between them
+      s = mkK(FP,FPb) + mkK(FR,FRb) +
+          mkF(FM,FMt,FMb)+mkN(FM,FMt)+mkJ(FM,96) +
+          mkF(FI,FIt,FIb)+mkN(FI,FIt)+mkJ(FI,100) +
+          PALM + thumbU(52, 84, 132)
       break
+    }
 
-    case 'L':
-      // Index up + thumb pointing right — L shape
-      s = PALM + knu(FP)+knu(FR)+knu(FM) +
-          ext(FI,62)+hNail(FI,62) + thR()
+    case 'L': {
+      // Index up + thumb right — clear L shape
+      s = mkK(FP,FPb) + mkK(FR,FRb) + mkK(FM,FMb) +
+          mkF(FI,FIt,FIb)+mkN(FI,FIt)+mkJ(FI,100) +
+          PALM + thumbR()
       break
+    }
 
-    case 'M':
-      // Three fingers (index/middle/ring) folded over thumb
-      s = hRnd(70,138,24,14,7) +   // thumb stub visible below
-          PALM + knu(FP) +
-          hRnd(FR-8,103,16,27,8) + // ring folded over
-          hRnd(FM-8,101,16,27,8) + // middle folded over
-          hRnd(FI-8,101,16,27,8)   // index folded over
+    case 'M': {
+      // 3 fingers (index/middle/ring) folded over thumb
+      const over3 =
+        `<path d="M ${FR-7},${FRb} C ${FR-7},${FRb-26} ${FR+10},${FRb-30} ${FR+10},${FRb-22} Q ${FR+9},${FRb-14} ${FR+7},${FRb} Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>` +
+        `<path d="M ${FM-7},${FMb} C ${FM-7},${FMb-28} ${FM+10},${FMb-32} ${FM+10},${FMb-24} Q ${FM+9},${FMb-15} ${FM+7},${FMb} Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>` +
+        `<path d="M ${FI-7},${FIb} C ${FI-7},${FIb-26} ${FI+10},${FIb-30} ${FI+10},${FIb-22} Q ${FI+9},${FIb-14} ${FI+7},${FIb} Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+      // Thumb visible below fingers
+      const thStub = `<path d="M 68,142 C 68,135 73,132 78,132 L 90,132 Q 95,134 95,141 Q 95,147 90,148 L 78,148 C 73,148 68,146 68,142 Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+      s = thStub + PALM + mkK(FP,FPb) + over3
       break
+    }
 
-    case 'N':
-      // Two fingers (index/middle) folded over thumb
-      s = hRnd(80,138,22,13,6) +
-          PALM + knu(FP)+knu(FR) +
-          hRnd(FM-8,103,16,27,8) +
-          hRnd(FI-8,103,16,27,8)
+    case 'N': {
+      // 2 fingers (index/middle) folded over thumb
+      const over2 =
+        `<path d="M ${FM-7},${FMb} C ${FM-7},${FMb-26} ${FM+10},${FMb-30} ${FM+10},${FMb-22} Q ${FM+9},${FMb-14} ${FM+7},${FMb} Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>` +
+        `<path d="M ${FI-7},${FIb} C ${FI-7},${FIb-26} ${FI+10},${FIb-30} ${FI+10},${FIb-22} Q ${FI+9},${FIb-14} ${FI+7},${FIb} Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+      const thStub = `<path d="M 76,142 C 76,135 80,132 85,132 L 96,132 Q 101,134 101,141 Q 101,147 96,148 L 85,148 C 80,148 76,146 76,142 Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+      s = thStub + PALM + mkK(FP,FPb) + mkK(FR,FRb) + over2
       break
+    }
 
-    case 'O':
-      // All fingers curve to thumb forming O
-      s = `<circle cx="100" cy="108" r="42" fill="${SK}" stroke="${SO}" stroke-width="2"/>` +
-          `<circle cx="100" cy="108" r="25" fill="${HBG}" stroke="${SO}" stroke-width="2"/>`
+    case 'O': {
+      // All fingers and thumb form O — draw as a skin-colored ring
+      s = `<circle cx="100" cy="106" r="44" fill="${F}" stroke="${SO}" stroke-width="2"/>` +
+          `<circle cx="100" cy="106" r="27" fill="${HBG}" stroke="${SO}" stroke-width="2"/>`
       break
+    }
 
-    case 'P':
-      // Like K but hand points downward
-      s = hRnd(78,68,44,36,16) +   // small palm horizontal
-          hRnd(80,102,16,38,8) +   // index pointing down
-          hRnd(98,96,16,32,8) +    // middle slightly less
-          hRnd(60,88,18,16,8)      // thumb left
+    case 'P': {
+      // Like K but hand points down (index + middle down, thumb left)
+      const downPalm = `<path d="M 70,58 Q 80,50 110,52 Q 130,54 132,64 L 130,100 Q 128,112 110,112 Q 90,112 76,108 Q 66,104 68,94 Z" fill="${FH}" stroke="${SO}" stroke-width="1.5"/>`
+      s = downPalm +
+          mkFh(66,40,78,14) + mkNh(40,78) +   // index pointing left/down
+          mkFh(64,40,96,13) + mkNh(40,96) +   // middle
+          `<path d="M 112,60 C 118,55 126,55 130,60 L 130,78 Q 130,84 124,86 Q 118,88 114,84 Q 110,80 112,74 Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
       break
+    }
 
-    case 'Q':
-      // Like G but pointing downward
-      s = hRnd(62,72,68,36,16) +
-          hRnd(97,106,16,38,8) +   // index down
-          hRnd(77,106,14,28,7)     // thumb parallel
+    case 'Q': {
+      // Like G but pointing down
+      s = PALM_SIDE +
+          mkFh(62,30,93,14) + mkNh(30,93) +    // index pointing left (down)
+          mkFh(64,35,110,12)                    // thumb
       break
+    }
 
-    case 'R':
+    case 'R': {
       // Index + middle extended, middle crossed over index
-      s = PALM + knu(FP)+knu(FR) +
-          ext(FI,62)+hNail(FI,62) +
-          `<rect x="${FM-7}" y="58" width="14" height="74" rx="7" fill="${SK}" stroke="${SO}" stroke-width="1.5" transform="rotate(-10 ${FM} 130)"/>` +
-          hNail(FM-6, 62) +
-          thFold()
+      const idx = mkF(FI,FIt,FIb) + mkN(FI,FIt)
+      const mid = `<path d="M ${FM-7},${FMb} C ${FM-4},${FMb-28} ${FI-4},${FMt+28} ${FI-5},${FMt+4} Q ${FI},${FMt-5} ${FI+5},${FMt+4} C ${FI+6},${FMt+28} ${FM+5},${FMb-28} ${FM+7},${FMb} Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+      const midNail = mkN(FI, FMt)
+      s = mkK(FP,FPb) + mkK(FR,FRb) + idx + PALM + mid + midNail + thumbFold()
       break
+    }
 
-    case 'S':
-      // Closed fist, thumb draped over finger tops
-      s = PALM + knu(FP)+knu(FR)+knu(FM)+knu(FI) + thOver()
+    case 'S': {
+      // Closed fist, thumb draped over top of fingers
+      s = mkK(FP,FPb) + mkK(FR,FRb) + mkK(FM,FMb) + mkK(FI,FIb) + PALM + thumbOver()
       break
+    }
 
-    case 'T':
+    case 'T': {
       // Closed fist, thumb inserted between index and middle
-      s = PALM + knu(FP)+knu(FR)+knu(FM)+knu(FI) + thBetw()
+      s = mkK(FP,FPb) + mkK(FR,FRb) + mkK(FM,FMb) + mkK(FI,FIb) + PALM + thumbBetween()
       break
+    }
 
-    case 'U':
-      // Index + middle extended side by side (parallel)
-      s = PALM + knu(FP)+knu(FR) +
-          ext(FM,58)+hNail(FM,58) + ext(FI,58)+hNail(FI,58) +
-          thFold()
+    case 'U': {
+      // Index + middle side by side, parallel
+      s = mkK(FP,FPb) + mkK(FR,FRb) +
+          mkF(FM,FMt,FMb)+mkN(FM,FMt)+mkJ(FM,96) +
+          mkF(FI,FIt,FIb)+mkN(FI,FIt)+mkJ(FI,100) +
+          PALM + thumbFold()
       break
+    }
 
-    case 'V':
-      // Index + middle spread in V
-      s = PALM + knu(FP)+knu(FR) +
-          `<rect x="${FM-7}" y="58" width="14" height="74" rx="7" fill="${SK}" stroke="${SO}" stroke-width="1.5" transform="rotate(12 ${FM} 132)"/>` +
-          hNail(FM-6,64) +
-          `<rect x="${FI-7}" y="58" width="14" height="74" rx="7" fill="${SK}" stroke="${SO}" stroke-width="1.5" transform="rotate(-12 ${FI} 132)"/>` +
-          hNail(FI+6,64) +
-          thFold()
+    case 'V': {
+      // Index + middle spread in V (rotated outward)
+      const midPath = `<path d="M ${FM-6},${FMb} C ${FM-7},${FMb-25} ${FM-10},${FMt+25} ${FM-11},${FMt+6} Q ${FM-8},${FMt-4} ${FM-2},${FMt-4} Q ${FM+3},${FMt-4} ${FM+6},${FMt+6} C ${FM+7},${FMt+25} ${FM+5},${FMb-25} ${FM+6},${FMb} Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+      const idxPath = `<path d="M ${FI-6},${FIb} C ${FI-5},${FIb-25} ${FI+4},${FIt+25} ${FI+5},${FIt+6} Q ${FI+8},${FIt-4} ${FI+14},${FIt-4} Q ${FI+19},${FIt-4} ${FI+22},${FIt+6} C ${FI+23},${FIt+25} ${FI+14},${FIb-25} ${FI+14},${FIb} Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+      const midNail = mkN(FM-5, FMt)
+      const idxNail = mkN(FI+13, FIt)
+      s = mkK(FP,FPb) + mkK(FR,FRb) + midPath + idxPath + PALM + midNail + idxNail + thumbFold()
       break
+    }
 
-    case 'W':
-      // Ring + middle + index spread in W (fan of 3)
-      s = PALM + knu(FP) +
-          `<rect x="${FR-7}" y="58" width="14" height="74" rx="7" fill="${SK}" stroke="${SO}" stroke-width="1.5" transform="rotate(15 ${FR} 132)"/>` +
-          hNail(FR-7,66) +
-          ext(FM,55)+hNail(FM,55) +
-          `<rect x="${FI-7}" y="58" width="14" height="74" rx="7" fill="${SK}" stroke="${SO}" stroke-width="1.5" transform="rotate(-15 ${FI} 132)"/>` +
-          hNail(FI+7,66) +
-          thFold()
+    case 'W': {
+      // Ring + middle + index spread (fan of 3)
+      const rPath  = `<path d="M ${FR-6},${FRb} C ${FR-7},${FRb-24} ${FR-13},${FRt+26} ${FR-14},${FRt+6} Q ${FR-11},${FRt-4} ${FR-5},${FRt-4} Q ${FR+0},${FRt-4} ${FR+3},${FRt+6} C ${FR+4},${FRt+26} ${FR+3},${FRb-24} ${FR+7},${FRb} Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+      const mPath  = mkF(FM,FMt,FMb)
+      const iPath  = `<path d="M ${FI-6},${FIb} C ${FI-5},${FIb-25} ${FI+5},${FIt+26} ${FI+6},${FIt+6} Q ${FI+9},${FIt-4} ${FI+15},${FIt-4} Q ${FI+21},${FIt-4} ${FI+24},${FIt+6} C ${FI+25},${FIt+26} ${FI+16},${FIb-25} ${FI+16},${FIb} Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+      const nails  = mkN(FR-10,FRt) + mkN(FM,FMt) + mkN(FI+15,FIt)
+      s = mkK(FP,FPb) + rPath + mPath + iPath + PALM + nails + thumbFold()
       break
+    }
 
-    case 'X':
-      // Index hooked at first joint
-      s = PALM + knu(FP)+knu(FR)+knu(FM) +
-          hRnd(FI-8,100,16,30,8) +   // lower index segment
-          hPth(`M ${FI-8},100 Q ${FI-12},78 ${FI+8},66 Q ${FI+24},60 ${FI+22},76`) +
-          thFold()
+    case 'X': {
+      // Index hooked (bent at proximal joint)
+      const hook = `<path d="M ${FI-6},${FIb} C ${FI-6},${FIb-28} ${FI+2},${FIb-42} ${FI+12},${FIb-44} Q ${FI+22},${FIb-46} ${FI+24},${FIb-38} Q ${FI+26},${FIb-28} ${FI+16},${FIb-22} L ${FI+6},${FIb} Z" fill="${F}" stroke="${SO}" stroke-width="1.2"/>`
+      s = mkK(FP,FPb) + mkK(FR,FRb) + mkK(FM,FMb) + hook + PALM + thumbFold()
       break
+    }
 
-    case 'Y':
-      // Thumb pointing right + pinky extended up, others folded
-      s = PALM + knu(FR)+knu(FM)+knu(FI) +
-          ext(FP,72)+hNail(FP,72) + thR()
+    case 'Y': {
+      // Pinky + thumb extended, others folded
+      s = mkK(FR,FRb) + mkK(FM,FMb) + mkK(FI,FIb) +
+          mkF(FP,FPt,FPb)+mkN(FP,FPt)+mkJ(FP,105) +
+          PALM + thumbR()
       break
+    }
 
-    case 'Z':
-      // Index extended pointing up (traces Z in motion)
-      s = PALM + knu(FP)+knu(FR)+knu(FM) +
-          ext(FI,62)+hNail(FI,62) + thFold()
+    case 'Z': {
+      // Index extended pointing up (traces Z — static same as pointing index)
+      s = mkK(FP,FPb) + mkK(FR,FRb) + mkK(FM,FMb) +
+          mkF(FI,FIt,FIb)+mkN(FI,FIt)+mkJ(FI,100) +
+          PALM + thumbFold()
       break
+    }
 
     default:
       return null
   }
 
-  return svg(bg + s)
+  return svg(DEFS + `<rect width="200" height="200" fill="${HBG}"/>` + s)
 }
 
 // ── Update deck JSON files ─────────────────────────────────────────────────

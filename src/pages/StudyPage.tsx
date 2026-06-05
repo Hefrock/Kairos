@@ -37,8 +37,8 @@ export default function StudyPage() {
 
   if (!activeDeck) return (
     <div className="flex flex-col items-center justify-center py-24 gap-3">
-      <p className="font-display text-2xl text-ink/50">No decks found</p>
-      <p className="text-ink/30 text-sm font-body">Import a deck from Browse to get started.</p>
+      <p className="font-display text-2xl text-ink/50 dark:text-parchment/50">No decks found</p>
+      <p className="text-ink/30 dark:text-parchment/30 text-sm font-body">Import a deck from Browse to get started.</p>
     </div>
   )
 
@@ -60,11 +60,11 @@ export default function StudyPage() {
         {decks.length > 1 ? (
           <DeckSwitcher decks={decks} activeDeck={activeDeck} />
         ) : (
-          <span className="font-display text-sm text-ink/50">{activeDeck.name}</span>
+          <span className="font-display text-sm text-ink/50 dark:text-parchment/50">{activeDeck.name}</span>
         )}
         <button
           onClick={() => setMode(m => m === 'image-to-label' ? 'label-to-image' : 'image-to-label')}
-          className="text-xs text-ink/30 hover:text-ink/60 font-body transition-colors tracking-wider"
+          className="text-xs text-ink/30 dark:text-parchment/30 hover:text-ink/60 dark:hover:text-parchment/60 font-body transition-colors tracking-wider"
           title={mode === 'image-to-label' ? 'Switch to label → image' : 'Switch to image → label'}
         >
           {mode === 'image-to-label' ? 'img → label' : 'label → img'}
@@ -95,7 +95,7 @@ export default function StudyPage() {
 
       {/* ── Keyboard hint ── */}
       {session.state === 'studying' && (
-        <p className="text-center text-xs text-ink/20 font-body mt-5 tracking-widest select-none">
+        <p className="text-center text-xs text-ink/20 dark:text-parchment/20 font-body mt-5 tracking-widest select-none">
           space to flip · 1 – 4 to grade
         </p>
       )}

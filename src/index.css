@@ -15,6 +15,11 @@
 body {
   @apply font-body bg-parchment text-ink antialiased;
   min-height: 100dvh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dark body {
+  @apply bg-ink text-parchment;
 }
 
 /* ── Card flip animation ──────────────────── */
