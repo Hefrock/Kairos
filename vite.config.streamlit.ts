@@ -13,7 +13,7 @@ export default defineConfig({
     alias: { '@': path.resolve(__dirname, './src') },
   },
   build: {
-    outDir: 'streamlit_build',
+    outDir: 'static',
     emptyOutDir: true,
     // viteSingleFile inlines everything; cssCodeSplit must be off
     cssCodeSplit: false,
