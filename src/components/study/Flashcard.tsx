@@ -81,7 +81,7 @@ function CardImage({ src, alt, dark }: { src: string; alt: string; dark: boolean
   const [status, setStatus] = useState<'loading' | 'loaded' | 'error'>('loading')
 
   return (
-    <div className="relative flex items-center justify-center w-full max-h-56 min-h-[100px]">
+    <div className="relative flex items-center justify-center w-full max-h-56 min-h-[100px] rounded-xl overflow-hidden bg-white">
       {/* Skeleton shown while loading */}
       {status === 'loading' && (
         <div className={`absolute inset-0 rounded-lg animate-pulse ${dark ? 'bg-white/5' : 'bg-ink/5 dark:bg-parchment/5'}`} />

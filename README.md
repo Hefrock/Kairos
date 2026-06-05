@@ -8,7 +8,7 @@ Deployable as a **PWA** (installable, offline-first) or as a **Streamlit app** f
 
 ---
 
-## Status — v0.1
+## Status — v0.2
 
 | Area | Status |
 |---|---|
@@ -19,6 +19,8 @@ Deployable as a **PWA** (installable, offline-first) or as a **Streamlit app** f
 | Settings (study prefs, import/export) | ✅ Complete |
 | Deck import (drag-and-drop JSON) | ✅ Complete |
 | Built-in decks — ASL Alphabet, Nautical Flags | ✅ Complete |
+| Dark mode (default, persistent, toggle) | ✅ Complete |
+| ASL images — Wikimedia hand illustrations | ✅ Complete |
 | PWA (installable, offline) | ✅ Complete |
 | Streamlit cloud deployment | ✅ Complete |
 | Greek / Japanese / Knots decks | Roadmap |
@@ -32,6 +34,7 @@ Deployable as a **PWA** (installable, offline-first) or as a **Streamlit app** f
 - **SM-2 Spaced Repetition** — cards surface at the optimal review interval. Again / Hard / Good / Easy grades with live next-review timing hints.
 - **Card flip animation** — 3D CSS flip, Cinzel/gold/parchment visual design.
 - **Dual study modes** — Image → Label, or Label → Image.
+- **Dark mode** — defaults to dark, persists across sessions, toggleable sun/moon button in the header.
 - **Browse page** — deck grid with per-deck due / new / learned pill counts.
 - **Progress page** — overall learned-% ring, today's review count, streak, per-deck progress bars.
 - **Settings page** — default study mode, daily goal slider, deck JSON import (drag-and-drop), progress export/import, data reset.
@@ -54,7 +57,7 @@ npm run dev
 # Production PWA build  →  dist/
 npm run build
 
-# Streamlit single-file build  →  streamlit_build/index.html
+# Streamlit single-file build  →  static/index.html
 npm run build:streamlit
 ```
 
@@ -69,12 +72,12 @@ streamlit run streamlit_app.py
 
 ## Streamlit Community Cloud Deployment
 
-1. Push the repo to GitHub (ensure `streamlit_build/index.html` is committed).
+1. Push the repo to GitHub (ensure `static/index.html` is committed).
 2. Go to [share.streamlit.io](https://share.streamlit.io) → **New app**.
 3. Select repo `hefrock/kairos`, branch `main`, main file `streamlit_app.py`.
 4. Click **Deploy** — no Node.js build step needed on the server.
 
-> **Keeping the bundle in sync:** after any UI changes run `npm run build:streamlit` and commit the updated `streamlit_build/index.html`.
+> **Keeping the bundle in sync:** after any UI changes run `npm run build:streamlit` and commit the updated `static/index.html`.
 
 ---
 
@@ -102,6 +105,7 @@ kairos/
 │   │   ├── study/         # Flashcard, GradeButtons, SessionComplete,
 │   │   │                  #   ProgressBar, DeckSwitcher
 │   │   └── layout/        # Layout, Nav
+│   ├── contexts/          # ThemeContext (dark mode)
 │   ├── pages/             # StudyPage, BrowsePage, ProgressPage, SettingsPage
 │   ├── hooks/             # useDecks, useStudySession, useDeckStats,
 │   │                      #   useProgress, useSettings
@@ -111,7 +115,12 @@ kairos/
 │   │   └── fetcher/       # Wikimedia API helper
 │   ├── data/decks/        # asl-alphabet.json, nautical-flags.json
 │   └── types/             # Shared TypeScript interfaces
-├── streamlit_build/       # Pre-built single-file bundle (committed)
+├── scripts/               # Build utilities
+│   ├── embed-asl-images.mjs    # Download + embed ASL images as data URIs
+│   ├── generate-deck-images.mjs
+│   └── download-deck-images.mjs
+├── static/                # Pre-built single-file bundle (committed)
+│   └── index.html
 ├── streamlit_app.py       # Streamlit cloud wrapper
 ├── requirements.txt       # streamlit>=1.32.0
 ├── vite.config.ts         # PWA build
