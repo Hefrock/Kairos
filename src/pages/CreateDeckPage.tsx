@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useDecks } from '@/hooks/useDecks'
-import type { CardDefinition, DeckCategory, DeckMeta } from '@/types'
+import type { CardDefinition, DeckCategory, DeckMeta, DraftCard } from '@/types'
 import ImagePicker from '@/components/deck/ImagePicker'
 
 // Produces a slug-safe unique ID from a label
@@ -10,17 +10,16 @@ function slugId(prefix: string, label: string, index: number): string {
   return `${prefix}-${slug}-${index}`
 }
 
-interface DraftCard {
-  _key: number   // stable React key only, not the stored id
-  label: string
-  desc: string
-  img: string
-}
-
 const EMPTY_CARD = (): DraftCard => ({ _key: Date.now() + Math.random(), label: '', desc: '', img: '' })
+
+interface PrefillState {
+  prefill?: DraftCard[]
+  meta?: { name?: string; description?: string }
+}
 
 export default function CreateDeckPage() {
   const navigate = useNavigate()
+  const location = useLocation()
   const { saveDeck } = useDecks()
 
   const [name, setName] = useState('')
@@ -30,6 +29,16 @@ export default function CreateDeckPage() {
   const [expandedKey, setExpandedKey] = useState<number | null>(cards[0]._key)
   const [saving, setSaving] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
+
+  useEffect(() => {
+    const state = location.state as PrefillState | null
+    if (!state?.prefill?.length) return
+    const keyed = state.prefill.map(c => ({ ...c, _key: Date.now() + Math.random() }))
+    setCards(keyed)
+    setExpandedKey(null)
+    if (state.meta?.name) setName(state.meta.name)
+    if (state.meta?.description) setDescription(state.meta.description)
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   function updateCard(key: number, patch: Partial<DraftCard>) {
     setCards(prev => prev.map(c => c._key === key ? { ...c, ...patch } : c))
@@ -81,6 +90,10 @@ export default function CreateDeckPage() {
         label: c.label.trim(),
         desc: c.desc.trim(),
         img: c.img || '',
+        ...(c.content   ? { content:   c.content }   : {}),
+        ...(c.cloze     ? { cloze:     c.cloze }     : {}),
+        ...(c.sourceRef ? { sourceRef: c.sourceRef } : {}),
+        generatedAt: c.sourceRef ? Date.now() : undefined,
       }))
 
     const deck: DeckMeta = {
