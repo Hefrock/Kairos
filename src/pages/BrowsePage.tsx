@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDecks } from '@/hooks/useDecks'
 import { useDeckStats, type DeckStats } from '@/hooks/useDeckStats'
@@ -41,6 +42,7 @@ function DeckCard({ deck, stats, onRemove }: { deck: DeckMeta; stats?: DeckStats
   const hasDue = (stats?.dueCount ?? 0) > 0
   const hasNew = (stats?.newCount ?? 0) > 0
   const isBuiltIn = deck.category !== 'custom'
+  const [confirmDelete, setConfirmDelete] = useState(false)
 
   return (
     <div className="rounded-card border border-gold/20 bg-parchment dark:bg-ink-mid p-5 flex flex-col gap-3 shadow-sm hover:shadow-md hover:border-gold/40 transition-all">
@@ -52,18 +54,36 @@ function DeckCard({ deck, stats, onRemove }: { deck: DeckMeta; stats?: DeckStats
         </span>
         <div className="flex items-center gap-3">
           <span className="text-xs text-ink/50 dark:text-parchment/50 font-body tabular-nums">
-            {deck.cards.length} cards
+            {deck.cards.length} {deck.cards.length === 1 ? 'card' : 'cards'}
           </span>
           {!isBuiltIn && (
-            <button
-              onClick={onRemove}
-              title="Remove deck"
-              className="text-ink/20 dark:text-parchment/20 hover:text-red-400 transition-colors"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="w-4 h-4" aria-hidden>
-                <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6" />
-              </svg>
-            </button>
+            confirmDelete ? (
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs text-red-400 font-body">Delete?</span>
+                <button
+                  onClick={onRemove}
+                  className="px-2 py-0.5 bg-red-500 text-white font-body text-xs rounded hover:bg-red-600 transition-colors"
+                >
+                  Yes
+                </button>
+                <button
+                  onClick={() => setConfirmDelete(false)}
+                  className="px-2 py-0.5 border border-ink/15 dark:border-parchment/15 text-ink/50 dark:text-parchment/50 font-body text-xs rounded hover:border-ink/30 transition-colors"
+                >
+                  No
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => setConfirmDelete(true)}
+                title="Remove deck"
+                className="text-ink/20 dark:text-parchment/20 hover:text-red-400 transition-colors"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="w-4 h-4" aria-hidden>
+                  <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6" />
+                </svg>
+              </button>
+            )
           )}
         </div>
       </div>
