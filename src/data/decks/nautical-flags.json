@@ -9,32 +9,162 @@
     "version": "1.0.0",
     "source": "https://en.wikipedia.org/wiki/International_Code_of_Signals",
     "cards": [
-      { "id": "flag-alpha",   "label": "Alpha (A)",   "desc": "I have a diver down; keep well clear at slow speed.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/ICS_Alpha.svg/200px-ICS_Alpha.svg.png" },
-      { "id": "flag-bravo",   "label": "Bravo (B)",   "desc": "I am taking in, or discharging, or carrying dangerous goods.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/ICS_Bravo.svg/200px-ICS_Bravo.svg.png" },
-      { "id": "flag-charlie", "label": "Charlie (C)", "desc": "Yes / affirmative.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/ICS_Charlie.svg/200px-ICS_Charlie.svg.png" },
-      { "id": "flag-delta",   "label": "Delta (D)",   "desc": "Keep clear of me — I am maneuvering with difficulty.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/ICS_Delta.svg/200px-ICS_Delta.svg.png" },
-      { "id": "flag-echo",    "label": "Echo (E)",    "desc": "I am altering my course to starboard.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ICS_Echo.svg/200px-ICS_Echo.svg.png" },
-      { "id": "flag-foxtrot", "label": "Foxtrot (F)", "desc": "I am disabled — communicate with me.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/ICS_Foxtrot.svg/200px-ICS_Foxtrot.svg.png" },
-      { "id": "flag-golf",    "label": "Golf (G)",    "desc": "I require a pilot. (Fishing vessel: hauling nets.)", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/ICS_Golf.svg/200px-ICS_Golf.svg.png" },
-      { "id": "flag-hotel",   "label": "Hotel (H)",   "desc": "I have a pilot on board.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/ICS_Hotel.svg/200px-ICS_Hotel.svg.png" },
-      { "id": "flag-india",   "label": "India (I)",   "desc": "I am altering my course to port.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/ICS_India.svg/200px-ICS_India.svg.png" },
-      { "id": "flag-juliet",  "label": "Juliet (J)",  "desc": "I am on fire and have dangerous cargo on board — keep well clear.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/ICS_Juliet.svg/200px-ICS_Juliet.svg.png" },
-      { "id": "flag-kilo",    "label": "Kilo (K)",    "desc": "I wish to communicate with you.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ICS_Kilo.svg/200px-ICS_Kilo.svg.png" },
-      { "id": "flag-lima",    "label": "Lima (L)",    "desc": "You should stop your vessel immediately.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/ICS_Lima.svg/200px-ICS_Lima.svg.png" },
-      { "id": "flag-mike",    "label": "Mike (M)",    "desc": "My vessel is stopped and making no way through the water.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/ICS_Mike.svg/200px-ICS_Mike.svg.png" },
-      { "id": "flag-november","label": "November (N)","desc": "No / negative.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/ICS_November.svg/200px-ICS_November.svg.png" },
-      { "id": "flag-oscar",   "label": "Oscar (O)",   "desc": "Man overboard.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/ICS_Oscar.svg/200px-ICS_Oscar.svg.png" },
-      { "id": "flag-papa",    "label": "Papa (P)",    "desc": "In harbour: all persons to report on board — vessel about to proceed to sea.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/ICS_Papa.svg/200px-ICS_Papa.svg.png" },
-      { "id": "flag-quebec",  "label": "Quebec (Q)",  "desc": "My vessel is healthy — I request free pratique.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/ICS_Quebec.svg/200px-ICS_Quebec.svg.png" },
-      { "id": "flag-romeo",   "label": "Romeo (R)",   "desc": "No ICS single-letter meaning. Used in combinations.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/ICS_Romeo.svg/200px-ICS_Romeo.svg.png" },
-      { "id": "flag-sierra",  "label": "Sierra (S)",  "desc": "I am operating astern propulsion.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/ICS_Sierra.svg/200px-ICS_Sierra.svg.png" },
-      { "id": "flag-tango",   "label": "Tango (T)",   "desc": "Keep clear of me — I am engaged in pair trawling.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/ICS_Tango.svg/200px-ICS_Tango.svg.png" },
-      { "id": "flag-uniform", "label": "Uniform (U)", "desc": "You are running into danger.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/ICS_Uniform.svg/200px-ICS_Uniform.svg.png" },
-      { "id": "flag-victor",  "label": "Victor (V)",  "desc": "I require assistance.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/ICS_Victor.svg/200px-ICS_Victor.svg.png" },
-      { "id": "flag-whiskey", "label": "Whiskey (W)", "desc": "I require medical assistance.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/ICS_Whiskey.svg/200px-ICS_Whiskey.svg.png" },
-      { "id": "flag-xray",    "label": "X-Ray (X)",   "desc": "Stop carrying out your intentions and watch for my signals.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/ICS_Xray.svg/200px-ICS_Xray.svg.png" },
-      { "id": "flag-yankee",  "label": "Yankee (Y)",  "desc": "I am dragging my anchor.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/ICS_Yankee.svg/200px-ICS_Yankee.svg.png" },
-      { "id": "flag-zulu",    "label": "Zulu (Z)",    "desc": "I require a tug. (Fishing vessel: shooting nets.)", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/ICS_Zulu.svg/200px-ICS_Zulu.svg.png" }
+      {
+        "id": "flag-alpha",
+        "label": "Alpha (A)",
+        "desc": "I have a diver down; keep well clear at slow speed.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22200%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22200%22%20fill%3D%22%2300529b%22%2F%3E%3Cpolygon%20points%3D%22200%2C80%20160%2C100%20200%2C120%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-bravo",
+        "label": "Bravo (B)",
+        "desc": "I am taking in, or discharging, or carrying dangerous goods.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23d0021b%22%2F%3E%3Cpolygon%20points%3D%22200%2C80%20160%2C100%20200%2C120%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-charlie",
+        "label": "Charlie (C)",
+        "desc": "Yes / affirmative.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%2240%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%2240%22%20width%3D%22200%22%20height%3D%2240%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%2280%22%20width%3D%22200%22%20height%3D%2240%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22120%22%20width%3D%22200%22%20height%3D%2240%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22160%22%20width%3D%22200%22%20height%3D%2240%22%20fill%3D%22%2300529b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-delta",
+        "label": "Delta (D)",
+        "desc": "Keep clear of me — I am maneuvering with difficulty.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23f5a623%22%2F%3E%3Crect%20x%3D%2280%22%20y%3D%220%22%20width%3D%2240%22%20height%3D%22200%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%2280%22%20width%3D%22200%22%20height%3D%2240%22%20fill%3D%22%2300529b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-echo",
+        "label": "Echo (E)",
+        "desc": "I am altering my course to starboard.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%22100%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22100%22%20width%3D%22200%22%20height%3D%22100%22%20fill%3D%22%2300529b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-foxtrot",
+        "label": "Foxtrot (F)",
+        "desc": "I am disabled — communicate with me.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23fff%22%2F%3E%3Cpolygon%20points%3D%22100%2C40%20160%2C100%20100%2C160%2040%2C100%22%20fill%3D%22%23d0021b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-golf",
+        "label": "Golf (G)",
+        "desc": "I require a pilot. (Fishing vessel: hauling nets.)",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23f5a623%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22100%22%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%22100%22%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23f5a623%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-hotel",
+        "label": "Hotel (H)",
+        "desc": "I have a pilot on board.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22200%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22200%22%20fill%3D%22%23d0021b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-india",
+        "label": "India (I)",
+        "desc": "I am altering my course to port.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23f5a623%22%2F%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2250%22%20fill%3D%22%23222%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-juliet",
+        "label": "Juliet (J)",
+        "desc": "I am on fire and have dangerous cargo on board — keep well clear.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%2266.66666666666667%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%2266.66666666666667%22%20width%3D%22200%22%20height%3D%2266.66666666666667%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22133.33333333333334%22%20width%3D%22200%22%20height%3D%2266.66666666666667%22%20fill%3D%22%2300529b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-kilo",
+        "label": "Kilo (K)",
+        "desc": "I wish to communicate with you.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22200%22%20fill%3D%22%23f5a623%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22200%22%20fill%3D%22%2300529b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-lima",
+        "label": "Lima (L)",
+        "desc": "You should stop your vessel immediately.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23f5a623%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23222%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22100%22%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23222%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%22100%22%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23f5a623%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-mike",
+        "label": "Mike (M)",
+        "desc": "My vessel is stopped and making no way through the water.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%22100%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22100%22%20width%3D%22200%22%20height%3D%22100%22%20fill%3D%22%2300529b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-november",
+        "label": "November (N)",
+        "desc": "No / negative.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%2250%22%20y%3D%220%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%220%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%22150%22%20y%3D%220%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%2250%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2250%22%20y%3D%2250%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%2250%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%22150%22%20y%3D%2250%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22100%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%2250%22%20y%3D%22100%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%22100%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%22150%22%20y%3D%22100%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22150%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2250%22%20y%3D%22150%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%22150%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%22150%22%20y%3D%22150%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%2300529b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-oscar",
+        "label": "Oscar (O)",
+        "desc": "Man overboard.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23f5a623%22%2F%3E%3Cpolygon%20points%3D%220%2C0%20200%2C0%200%2C200%22%20fill%3D%22%23d0021b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-papa",
+        "label": "Papa (P)",
+        "desc": "In harbour: all persons to report on board — vessel about to proceed to sea.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%2240%22%20width%3D%22120%22%20height%3D%22120%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-quebec",
+        "label": "Quebec (Q)",
+        "desc": "My vessel is healthy — I request free pratique.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23f5a623%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-romeo",
+        "label": "Romeo (R)",
+        "desc": "No ICS single-letter meaning. Used in combinations.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2266.66666666666667%22%20height%3D%22200%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%2266.66666666666667%22%20y%3D%220%22%20width%3D%2266.66666666666667%22%20height%3D%22200%22%20fill%3D%22%23f5a623%22%2F%3E%3Crect%20x%3D%22133.33333333333334%22%20y%3D%220%22%20width%3D%2266.66666666666667%22%20height%3D%22200%22%20fill%3D%22%23d0021b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-sierra",
+        "label": "Sierra (S)",
+        "desc": "I am operating astern propulsion.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2280%22%20y%3D%220%22%20width%3D%2240%22%20height%3D%22200%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%2280%22%20width%3D%22200%22%20height%3D%2240%22%20fill%3D%22%2300529b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-tango",
+        "label": "Tango (T)",
+        "desc": "Keep clear of me — I am engaged in pair trawling.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2266.66666666666667%22%20height%3D%22200%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%2266.66666666666667%22%20y%3D%220%22%20width%3D%2266.66666666666667%22%20height%3D%22200%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%22133.33333333333334%22%20y%3D%220%22%20width%3D%2266.66666666666667%22%20height%3D%22200%22%20fill%3D%22%23d0021b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-uniform",
+        "label": "Uniform (U)",
+        "desc": "You are running into danger.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2285%22%20y%3D%220%22%20width%3D%2230%22%20height%3D%22200%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%2285%22%20width%3D%22200%22%20height%3D%2230%22%20fill%3D%22%23d0021b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-victor",
+        "label": "Victor (V)",
+        "desc": "I require assistance.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23fff%22%2F%3E%3Cline%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%22200%22%20y2%3D%22200%22%20stroke%3D%22%23d0021b%22%20stroke-width%3D%2236%22%20stroke-linecap%3D%22round%22%2F%3E%3Cline%20x1%3D%22200%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%22200%22%20stroke%3D%22%23d0021b%22%20stroke-width%3D%2236%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-whiskey",
+        "label": "Whiskey (W)",
+        "desc": "I require medical assistance.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%2266.66666666666667%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%2266.66666666666667%22%20width%3D%22200%22%20height%3D%2266.66666666666667%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22133.33333333333334%22%20width%3D%22200%22%20height%3D%2266.66666666666667%22%20fill%3D%22%23d0021b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-xray",
+        "label": "X-Ray (X)",
+        "desc": "Stop carrying out your intentions and watch for my signals.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22200%22%20height%3D%2266.66666666666667%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%2266.66666666666667%22%20width%3D%22200%22%20height%3D%2266.66666666666667%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22133.33333333333334%22%20width%3D%22200%22%20height%3D%2266.66666666666667%22%20fill%3D%22%2300529b%22%2F%3E%3Cline%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%22200%22%20y2%3D%22200%22%20stroke%3D%22%23222%22%20stroke-width%3D%2230%22%20stroke-linecap%3D%22round%22%2F%3E%3Cline%20x1%3D%22200%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%22200%22%20stroke%3D%22%23222%22%20stroke-width%3D%2230%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-yankee",
+        "label": "Yankee (Y)",
+        "desc": "I am dragging my anchor.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%2250%22%20y%3D%220%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23f5a623%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%220%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%22150%22%20y%3D%220%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23f5a623%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%2250%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23f5a623%22%2F%3E%3Crect%20x%3D%2250%22%20y%3D%2250%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%2250%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23f5a623%22%2F%3E%3Crect%20x%3D%22150%22%20y%3D%2250%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22100%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%2250%22%20y%3D%22100%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23f5a623%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%22100%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%22150%22%20y%3D%22100%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23f5a623%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22150%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23f5a623%22%2F%3E%3Crect%20x%3D%2250%22%20y%3D%22150%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%22150%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23f5a623%22%2F%3E%3Crect%20x%3D%22150%22%20y%3D%22150%22%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23d0021b%22%2F%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "flag-zulu",
+        "label": "Zulu (Z)",
+        "desc": "I require a tug. (Fishing vessel: shooting nets.)",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23222%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%2300529b%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22100%22%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23d0021b%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%22100%22%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23f5a623%22%2F%3E%3C%2Fsvg%3E"
+      }
     ]
   }
 }

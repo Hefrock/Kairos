@@ -9,32 +9,162 @@
     "version": "1.0.0",
     "source": "https://commons.wikimedia.org/wiki/American_Sign_Language",
     "cards": [
-      { "id": "asl-a", "label": "A", "desc": "Closed fist with thumb resting on the side — like gripping a small ball.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sign_language_A.svg/200px-Sign_language_A.svg.png" },
-      { "id": "asl-b", "label": "B", "desc": "Four fingers straight up together, thumb folded across the palm.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sign_language_B.svg/200px-Sign_language_B.svg.png" },
-      { "id": "asl-c", "label": "C", "desc": "Curved hand forming a C shape — fingers and thumb gently bent.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Sign_language_C.svg/200px-Sign_language_C.svg.png" },
-      { "id": "asl-d", "label": "D", "desc": "Index finger points up, remaining fingers touch the thumb tip.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Sign_language_D.svg/200px-Sign_language_D.svg.png" },
-      { "id": "asl-e", "label": "E", "desc": "Fingers bent downward touching the thumb — like a claw.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Sign_language_E.svg/200px-Sign_language_E.svg.png" },
-      { "id": "asl-f", "label": "F", "desc": "Index finger and thumb form a circle; other three fingers extended upward.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Sign_language_F.svg/200px-Sign_language_F.svg.png" },
-      { "id": "asl-g", "label": "G", "desc": "Index finger points sideways, thumb parallel — like pointing a gun to the side.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Sign_language_G.svg/200px-Sign_language_G.svg.png" },
-      { "id": "asl-h", "label": "H", "desc": "Index and middle fingers extended together, pointing sideways.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sign_language_H.svg/200px-Sign_language_H.svg.png" },
-      { "id": "asl-i", "label": "I", "desc": "Pinky finger extended upward, all other fingers curled into a fist.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Sign_language_I.svg/200px-Sign_language_I.svg.png" },
-      { "id": "asl-j", "label": "J", "desc": "Start with pinky up (like I), then trace a J arc downward in the air.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Sign_language_J.svg/200px-Sign_language_J.svg.png" },
-      { "id": "asl-k", "label": "K", "desc": "Index and middle fingers form a V, with thumb tucked between them.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Sign_language_K.svg/200px-Sign_language_K.svg.png" },
-      { "id": "asl-l", "label": "L", "desc": "Index finger points up, thumb extends outward — a classic L shape.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Sign_language_L.svg/200px-Sign_language_L.svg.png" },
-      { "id": "asl-m", "label": "M", "desc": "Three fingers folded over a tucked thumb.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Sign_language_M.svg/200px-Sign_language_M.svg.png" },
-      { "id": "asl-n", "label": "N", "desc": "Two fingers folded over a tucked thumb.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Sign_language_N.svg/200px-Sign_language_N.svg.png" },
-      { "id": "asl-o", "label": "O", "desc": "All fingers curve to meet the thumb — forming a clear O shape.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Sign_language_O.svg/200px-Sign_language_O.svg.png" },
-      { "id": "asl-p", "label": "P", "desc": "Like K but rotated — hand points downward.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Sign_language_P.svg/200px-Sign_language_P.svg.png" },
-      { "id": "asl-q", "label": "Q", "desc": "Like G but rotated — hand points downward.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Sign_language_Q.svg/200px-Sign_language_Q.svg.png" },
-      { "id": "asl-r", "label": "R", "desc": "Index and middle fingers crossed over each other.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Sign_language_R.svg/200px-Sign_language_R.svg.png" },
-      { "id": "asl-s", "label": "S", "desc": "Fist with thumb resting across the curled fingers — a strong grip.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Sign_language_S.svg/200px-Sign_language_S.svg.png" },
-      { "id": "asl-t", "label": "T", "desc": "Thumb tucked between the index and middle fingers.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Sign_language_T.svg/200px-Sign_language_T.svg.png" },
-      { "id": "asl-u", "label": "U", "desc": "Index and middle fingers extended together, pointing straight up.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Sign_language_U.svg/200px-Sign_language_U.svg.png" },
-      { "id": "asl-v", "label": "V", "desc": "Index and middle fingers spread apart — the classic peace/victory sign.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Sign_language_V.svg/200px-Sign_language_V.svg.png" },
-      { "id": "asl-w", "label": "W", "desc": "Index, middle, and ring fingers spread and pointing up — three prongs.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Sign_language_W.svg/200px-Sign_language_W.svg.png" },
-      { "id": "asl-x", "label": "X", "desc": "Index finger bent into a hook shape.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Sign_language_X.svg/200px-Sign_language_X.svg.png" },
-      { "id": "asl-y", "label": "Y", "desc": "Thumb and pinky extended outward — the shaka / hang-loose shape.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sign_language_Y.svg/200px-Sign_language_Y.svg.png" },
-      { "id": "asl-z", "label": "Z", "desc": "Index finger traces a Z shape in the air.", "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sign_language_Z.svg/200px-Sign_language_Z.svg.png" }
+      {
+        "id": "asl-a",
+        "label": "A",
+        "desc": "Closed fist with thumb resting on the side — like gripping a small ball.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EA%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-b",
+        "label": "B",
+        "desc": "Four fingers straight up together, thumb folded across the palm.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EB%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-c",
+        "label": "C",
+        "desc": "Curved hand forming a C shape — fingers and thumb gently bent.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EC%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-d",
+        "label": "D",
+        "desc": "Index finger points up, remaining fingers touch the thumb tip.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3ED%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-e",
+        "label": "E",
+        "desc": "Fingers bent downward touching the thumb — like a claw.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EE%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-f",
+        "label": "F",
+        "desc": "Index finger and thumb form a circle; other three fingers extended upward.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EF%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-g",
+        "label": "G",
+        "desc": "Index finger points sideways, thumb parallel — like pointing a gun to the side.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EG%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-h",
+        "label": "H",
+        "desc": "Index and middle fingers extended together, pointing sideways.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EH%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-i",
+        "label": "I",
+        "desc": "Pinky finger extended upward, all other fingers curled into a fist.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EI%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-j",
+        "label": "J",
+        "desc": "Start with pinky up (like I), then trace a J arc downward in the air.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EJ%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-k",
+        "label": "K",
+        "desc": "Index and middle fingers form a V, with thumb tucked between them.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EK%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-l",
+        "label": "L",
+        "desc": "Index finger points up, thumb extends outward — a classic L shape.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EL%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-m",
+        "label": "M",
+        "desc": "Three fingers folded over a tucked thumb.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EM%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-n",
+        "label": "N",
+        "desc": "Two fingers folded over a tucked thumb.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EN%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-o",
+        "label": "O",
+        "desc": "All fingers curve to meet the thumb — forming a clear O shape.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EO%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-p",
+        "label": "P",
+        "desc": "Like K but rotated — hand points downward.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EP%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-q",
+        "label": "Q",
+        "desc": "Like G but rotated — hand points downward.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EQ%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-r",
+        "label": "R",
+        "desc": "Index and middle fingers crossed over each other.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3ER%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-s",
+        "label": "S",
+        "desc": "Fist with thumb resting across the curled fingers — a strong grip.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3ES%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-t",
+        "label": "T",
+        "desc": "Thumb tucked between the index and middle fingers.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3ET%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-u",
+        "label": "U",
+        "desc": "Index and middle fingers extended together, pointing straight up.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EU%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-v",
+        "label": "V",
+        "desc": "Index and middle fingers spread apart — the classic peace/victory sign.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EV%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-w",
+        "label": "W",
+        "desc": "Index, middle, and ring fingers spread and pointing up — three prongs.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EW%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-x",
+        "label": "X",
+        "desc": "Index finger bent into a hook shape.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EX%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-y",
+        "label": "Y",
+        "desc": "Thumb and pinky extended outward — the shaka / hang-loose shape.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EY%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      },
+      {
+        "id": "asl-z",
+        "label": "Z",
+        "desc": "Index finger traces a Z shape in the air.",
+        "img": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2295%22%20fill%3D%22%23f7f3eb%22%20stroke%3D%22%23c9a84c%22%20stroke-width%3D%225%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%2295%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2296%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%231a1a2e%22%20font-weight%3D%22bold%22%3EZ%3C%2Ftext%3E%3Ctext%20x%3D%22100%22%20y%3D%22170%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20fill%3D%22%23c9a84c%22%20font-weight%3D%22normal%22%3EASL%3C%2Ftext%3E%3C%2Fsvg%3E"
+      }
     ]
   }
 }
