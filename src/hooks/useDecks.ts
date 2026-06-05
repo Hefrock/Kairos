@@ -1,8 +1,6 @@
-// ─────────────────────────────────────────────
-// useDecks — load built-in and user-imported decks
-// ─────────────────────────────────────────────
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import type { DeckMeta, DeckPack } from '@/types'
+import { putDeck, getAllDecks, deleteDeck } from '@/lib/db'
 
 // Built-in deck imports (Vite handles JSON)
 import aslDeck from '@/data/decks/asl-alphabet.json'
@@ -12,27 +10,23 @@ const BUILT_IN_DECKS: DeckPack[] = [
   aslDeck as DeckPack,
   nauticalDeck as DeckPack,
 ]
+const BUILT_IN_IDS = new Set(BUILT_IN_DECKS.map(p => p.deck.id))
 
 export function useDecks() {
   const [decks, setDecks] = useState<DeckMeta[]>([])
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    // Start with built-in decks
-    const loaded = BUILT_IN_DECKS.map(p => p.deck)
-
-    // TODO: load user-imported decks from IndexedDB decks store
-    // const userDecks = await getUserDecks()
-    // loaded.push(...userDecks)
-
-    setDecks(loaded)
+  const reload = useCallback(async () => {
+    const builtIn = BUILT_IN_DECKS.map(p => p.deck)
+    const userDecks = await getAllDecks()
+    // User decks that shadow a built-in ID win; append the rest
+    const builtInFiltered = builtIn.filter(d => !userDecks.find(u => u.id === d.id))
+    setDecks([...builtInFiltered, ...userDecks])
     setLoading(false)
   }, [])
 
-  /**
-   * Import a deck pack from a JSON file dropped/selected by the user.
-   * Validates schema version before accepting.
-   */
+  useEffect(() => { reload() }, [reload])
+
   async function importDeckFromFile(file: File): Promise<{ ok: boolean; error?: string }> {
     try {
       const text = await file.text()
@@ -41,17 +35,25 @@ export function useDecks() {
       if (!pack.deck?.id || !Array.isArray(pack.deck?.cards)) {
         return { ok: false, error: 'Invalid deck format.' }
       }
-      // TODO: persist to IndexedDB decks store
-      setDecks(prev => {
-        const exists = prev.find(d => d.id === pack.deck.id)
-        if (exists) return prev.map(d => d.id === pack.deck.id ? pack.deck : d)
-        return [...prev, pack.deck]
-      })
+      await putDeck(pack.deck)
+      await reload()
       return { ok: true }
     } catch {
       return { ok: false, error: 'Could not parse deck file.' }
     }
   }
 
-  return { decks, loading, importDeckFromFile }
+  async function saveDeck(deck: DeckMeta): Promise<void> {
+    await putDeck(deck)
+    await reload()
+  }
+
+  async function removeDeck(id: string): Promise<{ ok: boolean; error?: string }> {
+    if (BUILT_IN_IDS.has(id)) return { ok: false, error: 'Built-in decks cannot be removed.' }
+    await deleteDeck(id)
+    await reload()
+    return { ok: true }
+  }
+
+  return { decks, loading, importDeckFromFile, saveDeck, removeDeck }
 }

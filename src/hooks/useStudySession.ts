@@ -1,20 +1,16 @@
-// ─────────────────────────────────────────────
-// useStudySession — manages a single study session
-// ─────────────────────────────────────────────
 import { useState, useEffect, useCallback } from 'react'
 import type { Card, Grade, StudyMode, SessionStats, DeckMeta } from '@/types'
-import { applyGrade, isDue, isNew, sortQueue } from '@/lib/srs/sm2'
+import { applyGrade, isDue, isNew, sortQueue, shuffle } from '@/lib/srs/sm2'
 import { getProgress, putProgress } from '@/lib/db'
 
 type SessionState = 'idle' | 'studying' | 'flipped' | 'done'
 
-export function useStudySession(deck: DeckMeta | null, mode: StudyMode) {
+export function useStudySession(deck: DeckMeta | null, mode: StudyMode, randomize = false) {
   const [queue, setQueue] = useState<Card[]>([])
   const [index, setIndex] = useState(0)
   const [state, setState] = useState<SessionState>('idle')
   const [stats, setStats] = useState<SessionStats | null>(null)
 
-  // Build the study queue from deck cards + their SRS progress
   const buildQueue = useCallback(async () => {
     if (!deck) return
     const now = Date.now()
@@ -26,13 +22,14 @@ export function useStudySession(deck: DeckMeta | null, mode: StudyMode) {
       })
     )
 
-    // Due + new cards first; if nothing is due, study all
     let due = withProgress.filter(c => isDue(c, now) || isNew(c))
     if (due.length === 0) due = withProgress
 
-    const sorted = sortQueue(due.map(c => ({ ...c, id: c.id }))) as Card[]
+    const ordered = randomize
+      ? shuffle(due.map(c => ({ ...c, id: c.id })))
+      : sortQueue(due.map(c => ({ ...c, id: c.id })))
 
-    setQueue(sorted)
+    setQueue(ordered as Card[])
     setIndex(0)
     setState('studying')
     setStats({
@@ -42,7 +39,7 @@ export function useStudySession(deck: DeckMeta | null, mode: StudyMode) {
       correct: 0,
       again: 0,
     })
-  }, [deck])
+  }, [deck, randomize])
 
   useEffect(() => {
     buildQueue()
@@ -60,7 +57,6 @@ export function useStudySession(deck: DeckMeta | null, mode: StudyMode) {
     const updated = applyGrade(currentCard, g)
     await putProgress(updated)
 
-    // Merge override fields back (not stored in SM-2 record by default)
     const next: Card = {
       ...currentCard,
       ...updated,
