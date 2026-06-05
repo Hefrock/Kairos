@@ -2,7 +2,7 @@
 
 > *καιρός — the right, critical, or opportune moment*
 
-A spaced repetition flashcard app built for deep, versatile learning. Phase 1 delivers a full study UI with SM-2 SRS, built-in visual decks, custom deck creation, and progress tracking. Phase 2 will add RAG-powered knowledge digests — podcast summaries and RSS feeds converted into study cards.
+A spaced repetition flashcard app and the foundation of a **contextual engineering system**. Phase 1 delivers a full study UI with SM-2 SRS, built-in visual decks, custom deck creation, Wikipedia import, and progress tracking. Phase 2 will expose the knowledge base as an MCP server — surfacing the right context units to AI models at the right time.
 
 Deployable as a **PWA** (installable, offline-first) or as a **Streamlit app** for cloud hosting.
 
@@ -27,12 +27,14 @@ Deployable as a **PWA** (installable, offline-first) or as a **Streamlit app** f
 | Card shuffle / randomization | ✅ Complete |
 | Deck persistence (IndexedDB) | ✅ Complete |
 | Wikimedia image search in deck creator | ✅ Complete |
-| RAG-ready card schema (cloze, sourceRef) | ✅ Complete |
+| RAG-ready card schema (cloze, sourceRef, content) | ✅ Complete |
+| Wikipedia article → cards | ✅ Complete |
+| MCP-forward schema (content, embedding stub) | ✅ Complete |
 | Greek / Japanese / Knots decks | Roadmap |
 | Cloze card rendering in study UI | Roadmap |
 | Anki .apkg import / export | Roadmap |
 | Full streak history (session log) | Roadmap |
-| Phase 2 — RAG knowledge digest | Roadmap |
+| Phase 2 — MCP contextual engineering server | Roadmap |
 
 ---
 
@@ -45,6 +47,7 @@ Deployable as a **PWA** (installable, offline-first) or as a **Streamlit app** f
 - **Dark mode** — defaults to dark, persists across sessions, toggleable in the header.
 - **Browse page** — deck grid with per-deck due / new / learned pill counts. Create and delete custom decks.
 - **Deck creator** — build a new deck in the app: add cards, search Wikimedia for images, reorder, save.
+- **Wikipedia import** — paste any Wikipedia article URL → section headings become cards with full text stored for MCP context retrieval.
 - **Progress page** — overall learned-% ring, today's review count, streak, per-deck progress bars.
 - **Settings page** — default study mode, daily goal slider, shuffle toggle, deck JSON import (drag-and-drop), progress export/import, data reset.
 - **IndexedDB storage** — all SRS progress, settings, and custom decks stay local in the browser.
@@ -114,29 +117,32 @@ kairos/
 │   │   ├── study/         # Flashcard, GradeButtons, SessionComplete,
 │   │   │                  #   ProgressBar, DeckSwitcher
 │   │   ├── deck/          # ImagePicker (Wikimedia search + URL/upload)
-│   │   └── layout/        # Layout, Nav
+│   │   └── layout/        # Layout (header, nav, dark mode toggle)
 │   ├── contexts/          # ThemeContext (dark mode)
 │   ├── pages/             # StudyPage, BrowsePage, ProgressPage,
-│   │                      #   SettingsPage, CreateDeckPage
+│   │                      #   SettingsPage, CreateDeckPage,
+│   │                      #   WikipediaImportPage
 │   ├── hooks/             # useDecks, useStudySession, useDeckStats,
-│   │                      #   useProgress, useSettings
+│   │                      #   useProgress, useSettings,
+│   │                      #   useWikipediaImport
 │   ├── lib/
 │   │   ├── srs/           # SM-2 algorithm + Fisher-Yates shuffle
-│   │   ├── db/            # IndexedDB layer (cards, decks, settings)
-│   │   └── fetcher/       # Wikimedia API helper
+│   │   ├── db/            # IndexedDB layer (progress, decks, settings)
+│   │   └── fetcher/       # Wikimedia image API, Wikipedia article API
 │   ├── data/decks/        # asl-alphabet.json, nautical-flags.json
-│   └── types/             # Shared TypeScript interfaces
-├── scripts/               # Build utilities
-│   ├── embed-asl-images.mjs    # Download + embed ASL images as data URIs
-│   ├── generate-deck-images.mjs
-│   └── download-deck-images.mjs
-├── static/                # Pre-built single-file bundle (committed)
-│   └── index.html
+│   └── types/             # Shared TypeScript interfaces (CardDefinition,
+│                          #   DeckMeta, DraftCard, AppSettings, …)
+├── scripts/               # One-off build utilities (not part of app)
+├── static/                # Pre-built single-file Streamlit bundle
+│   └── index.html         # ← committed; this IS the Streamlit deployment
+├── CLAUDE.md              # AI/developer onboarding — read before coding
 ├── streamlit_app.py       # Streamlit cloud wrapper
 ├── requirements.txt       # streamlit>=1.32.0
-├── vite.config.ts         # PWA build
-└── vite.config.streamlit.ts  # Single-file Streamlit build
+├── vite.config.ts         # PWA build → dist/
+└── vite.config.streamlit.ts  # Single-file build → static/index.html
 ```
+
+> **New to this project?** Read `CLAUDE.md` first. It explains every non-obvious decision.
 
 ---
 
