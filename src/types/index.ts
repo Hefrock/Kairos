@@ -77,6 +77,7 @@ export interface AppSettings {
   defaultStudyMode: StudyMode
   dailyGoal: number       // target cards per day
   timerVisible: boolean
+  shuffle: boolean        // randomize card order within a session
 }
 
 // ── Future: RAG / Digest (Phase 2 stubs) ──────

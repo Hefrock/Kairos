@@ -49,6 +49,7 @@ interface KairosDB extends DBSchema {
 
 const mem = {
   progress: new Map<string, CardProgress>(),
+  decks: new Map<string, DeckMeta & { installedAt: number }>(),
   settings: null as AppSettings | null,
 }
 
@@ -113,6 +114,27 @@ export async function getDueProgress(before = Date.now()): Promise<CardProgress[
   return db.getAllFromIndex('progress', 'by-due', range)
 }
 
+// ── Deck CRUD ─────────────────────────────────
+
+export async function putDeck(deck: DeckMeta): Promise<void> {
+  const db = await getDB()
+  const record = { ...deck, installedAt: Date.now() }
+  if (!db) { mem.decks.set(deck.id, record); return }
+  await db.put('decks', record)
+}
+
+export async function getAllDecks(): Promise<DeckMeta[]> {
+  const db = await getDB()
+  if (!db) return [...mem.decks.values()]
+  return db.getAll('decks')
+}
+
+export async function deleteDeck(id: string): Promise<void> {
+  const db = await getDB()
+  if (!db) { mem.decks.delete(id); return }
+  await db.delete('decks', id)
+}
+
 // ── Settings ──────────────────────────────────
 
 const SETTINGS_KEY = 'settings'
@@ -122,12 +144,16 @@ const DEFAULT_SETTINGS: AppSettings = {
   defaultStudyMode: 'image-to-label',
   dailyGoal: 20,
   timerVisible: true,
+  shuffle: true,
 }
 
 export async function getSettings(): Promise<AppSettings> {
   const db = await getDB()
-  if (!db) return mem.settings ?? DEFAULT_SETTINGS
-  return (await db.get('settings', SETTINGS_KEY)) ?? DEFAULT_SETTINGS
+  const stored = db
+    ? await db.get('settings', SETTINGS_KEY)
+    : mem.settings
+  // Merge over defaults so new fields are populated for existing users
+  return { ...DEFAULT_SETTINGS, ...(stored ?? {}) }
 }
 
 export async function putSettings(settings: AppSettings): Promise<void> {

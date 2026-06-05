@@ -4,7 +4,7 @@ import { useDeckStats, type DeckStats } from '@/hooks/useDeckStats'
 import type { DeckMeta } from '@/types'
 
 export default function BrowsePage() {
-  const { decks, loading } = useDecks()
+  const { decks, loading, removeDeck } = useDecks()
   const { stats } = useDeckStats(decks)
 
   if (loading) return (
@@ -15,19 +15,32 @@ export default function BrowsePage() {
 
   return (
     <div>
-      <h1 className="font-display text-xl text-ink dark:text-parchment tracking-wide mb-6">Browse Decks</h1>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="font-display text-xl text-ink dark:text-parchment tracking-wide">Browse Decks</h1>
+        <Link
+          to="/browse/create"
+          className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gold text-ink font-display text-sm tracking-wide hover:bg-gold/90 transition-colors"
+        >
+          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden>
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+          New Deck
+        </Link>
+      </div>
+
       <div className="flex flex-col gap-4">
         {decks.map(deck => (
-          <DeckCard key={deck.id} deck={deck} stats={stats[deck.id]} />
+          <DeckCard key={deck.id} deck={deck} stats={stats[deck.id]} onRemove={() => removeDeck(deck.id)} />
         ))}
       </div>
     </div>
   )
 }
 
-function DeckCard({ deck, stats }: { deck: DeckMeta; stats?: DeckStats }) {
+function DeckCard({ deck, stats, onRemove }: { deck: DeckMeta; stats?: DeckStats; onRemove: () => void }) {
   const hasDue = (stats?.dueCount ?? 0) > 0
   const hasNew = (stats?.newCount ?? 0) > 0
+  const isBuiltIn = deck.category !== 'custom'
 
   return (
     <div className="rounded-card border border-gold/20 bg-parchment dark:bg-ink-mid p-5 flex flex-col gap-3 shadow-sm hover:shadow-md hover:border-gold/40 transition-all">
@@ -37,15 +50,28 @@ function DeckCard({ deck, stats }: { deck: DeckMeta; stats?: DeckStats }) {
         <span className="text-[11px] font-body tracking-widest text-gold/70 uppercase">
           {deck.tag}
         </span>
-        <span className="text-xs text-ink/30 dark:text-parchment/30 font-body tabular-nums">
-          {deck.cards.length} cards
-        </span>
+        <div className="flex items-center gap-3">
+          <span className="text-xs text-ink/50 dark:text-parchment/50 font-body tabular-nums">
+            {deck.cards.length} cards
+          </span>
+          {!isBuiltIn && (
+            <button
+              onClick={onRemove}
+              title="Remove deck"
+              className="text-ink/20 dark:text-parchment/20 hover:text-red-400 transition-colors"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="w-4 h-4" aria-hidden>
+                <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6" />
+              </svg>
+            </button>
+          )}
+        </div>
       </div>
 
       {/* ── Deck name + description ── */}
       <div>
         <h2 className="font-display text-lg text-ink dark:text-parchment tracking-wide leading-snug">{deck.name}</h2>
-        <p className="text-sm text-ink/50 dark:text-parchment/50 font-body mt-0.5 line-clamp-2 leading-relaxed">
+        <p className="text-sm text-ink/65 dark:text-parchment/65 font-body mt-0.5 line-clamp-2 leading-relaxed">
           {deck.description}
         </p>
       </div>

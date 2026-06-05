@@ -16,6 +16,11 @@ body {
   @apply font-body bg-parchment text-ink antialiased;
   min-height: 100dvh;
   transition: background-color 0.2s ease, color 0.2s ease;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.01em;
+  line-height: 1.55;
 }
 
 .dark body {
@@ -43,6 +48,18 @@ body {
 
 .card-back-face {
   transform: rotateY(180deg);
+}
+
+/* ── Form input ───────────────────────────── */
+.input {
+  @apply w-full px-3 py-2 rounded-lg border border-ink/15 dark:border-parchment/15
+    bg-transparent text-sm text-ink dark:text-parchment
+    placeholder:text-ink/30 dark:placeholder:text-parchment/30
+    focus:outline-none focus:border-gold/50 transition-colors;
+}
+
+select.input {
+  @apply appearance-none;
 }
 
 /* ── Utility ──────────────────────────────── */
