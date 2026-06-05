@@ -11,6 +11,16 @@ export interface CardDefinition {
   desc: string          // explanation shown on card back
   img: string           // canonical image URL (Wikimedia or bundled)
   tags?: string[]       // e.g. ["alphabet", "handshape"]
+
+  // ── RAG / auto-generation fields (optional, safe to omit in hand-crafted decks) ──
+  /** Fill-in-the-blank notation: "The {{c1::mitochondria}} is the powerhouse of the {{c2::cell}}"
+   *  Supports multiple gaps (c1, c2, …). When present, the study UI can render a
+   *  cloze card instead of the standard label/image pair. */
+  cloze?: string
+  /** Source URL, DOI, or citation string for RAG-generated cards */
+  sourceRef?: string
+  /** Unix ms timestamp of when this card was auto-generated (absent on hand-crafted cards) */
+  generatedAt?: number
 }
 
 /** SRS progress record stored in IndexedDB */
@@ -96,9 +106,10 @@ export interface DigestSource {
 /**
  * A digest-generated card stub — Phase 2.
  * Extends CardDefinition so it can be used in standard study sessions.
+ * `generatedAt` and `sourceRef` are inherited from CardDefinition (now required here).
  */
 export interface DigestCard extends CardDefinition {
   sourceId: string        // which DigestSource produced this
-  generatedAt: number     // Unix ms
+  generatedAt: number     // required for digest cards (overrides the optional base field)
   excerpt?: string        // raw source text that generated the card
 }
