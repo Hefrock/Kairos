@@ -8,19 +8,23 @@
 export interface CardDefinition {
   id: string            // e.g. "asl-a", "flag-alpha"
   label: string         // e.g. "A", "Alpha (A)"
-  desc: string          // explanation shown on card back
+  desc: string          // short summary shown on card back (1–2 sentences)
   img: string           // canonical image URL (Wikimedia or bundled)
   tags?: string[]       // e.g. ["alphabet", "handshape"]
 
-  // ── RAG / auto-generation fields (optional, safe to omit in hand-crafted decks) ──
+  // ── MCP context fields — optional, safe to omit in hand-crafted decks ──
+  /** Full retrievable text for this card — the payload exposed to a model's context window.
+   *  `desc` is the human-readable summary; `content` is the complete source text.
+   *  Absent on hand-crafted cards. Required for RAG / MCP resource exposure. */
+  content?: string
   /** Fill-in-the-blank notation: "The {{c1::mitochondria}} is the powerhouse of the {{c2::cell}}"
-   *  Supports multiple gaps (c1, c2, …). When present, the study UI can render a
-   *  cloze card instead of the standard label/image pair. */
+   *  Supports multiple gaps (c1, c2, …). Same syntax as Anki cloze deletion. */
   cloze?: string
-  /** Source URL, DOI, or citation string for RAG-generated cards */
+  /** Source URL, DOI, or citation for auto-generated or imported cards */
   sourceRef?: string
-  /** Unix ms timestamp of when this card was auto-generated (absent on hand-crafted cards) */
+  /** Unix ms timestamp when this card was auto-generated (absent on hand-crafted cards) */
   generatedAt?: number
+  // embedding?: number[]  — reserved: semantic vector for future MCP retrieval ranking
 }
 
 /** SRS progress record stored in IndexedDB */
@@ -66,6 +70,20 @@ export interface DeckPack {
   deck: DeckMeta
   exportedAt?: string     // ISO date
   progressSnapshot?: CardProgress[]  // optional — for full backup files
+}
+
+// ── Draft (in-app deck creator) ───────────────
+
+/** Mutable card being assembled in the deck creator UI.
+ *  `_key` is a stable React key only — not persisted. */
+export interface DraftCard {
+  _key: number
+  label: string
+  desc: string
+  img: string
+  content?: string
+  cloze?: string
+  sourceRef?: string
 }
 
 // ── Study Session ──────────────────────────────

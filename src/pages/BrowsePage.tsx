@@ -18,15 +18,26 @@ export default function BrowsePage() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <h1 className="font-display text-xl text-ink dark:text-parchment tracking-wide">Browse Decks</h1>
-        <Link
-          to="/browse/create"
-          className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gold text-ink font-display text-sm tracking-wide hover:bg-gold/90 transition-colors"
-        >
-          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden>
-            <path d="M12 5v14M5 12h14" />
-          </svg>
-          New Deck
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link
+            to="/browse/wiki"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-gold/30 text-gold/70 font-display text-sm tracking-wide hover:border-gold/60 hover:text-gold transition-colors"
+          >
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20M12 2a14.5 14.5 0 0 1 0 20M2 12h20"/>
+            </svg>
+            Wikipedia
+          </Link>
+          <Link
+            to="/browse/create"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gold text-ink font-display text-sm tracking-wide hover:bg-gold/90 transition-colors"
+          >
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden>
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+            New Deck
+          </Link>
+        </div>
       </div>
 
       <div className="flex flex-col gap-4">

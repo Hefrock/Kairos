@@ -5,6 +5,7 @@ import BrowsePage from '@/pages/BrowsePage'
 import ProgressPage from '@/pages/ProgressPage'
 import SettingsPage from '@/pages/SettingsPage'
 import CreateDeckPage from '@/pages/CreateDeckPage'
+import WikipediaImportPage from '@/pages/WikipediaImportPage'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="study/:deckId" element={<StudyPage />} />
         <Route path="browse" element={<BrowsePage />} />
         <Route path="browse/create" element={<CreateDeckPage />} />
+        <Route path="browse/wiki" element={<WikipediaImportPage />} />
         <Route path="progress" element={<ProgressPage />} />
         <Route path="settings" element={<SettingsPage />} />
       </Route>
