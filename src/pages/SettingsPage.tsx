@@ -1,12 +1,14 @@
 import { useRef, useState } from 'react'
 import { useDecks } from '@/hooks/useDecks'
 import { useSettings } from '@/hooks/useSettings'
+import { useTheme } from '@/contexts/ThemeContext'
 import { exportProgress, importProgress } from '@/lib/db'
 import type { StudyMode, DeckPack } from '@/types'
 
 export default function SettingsPage() {
   const { settings, loading, update } = useSettings()
   const { importDeckFromFile } = useDecks()
+  const { isDark, toggle } = useTheme()
   const [importMsg, setImportMsg] = useState<{ ok: boolean; text: string } | null>(null)
   const [dragging, setDragging] = useState(false)
   const [clearConfirm, setClearConfirm] = useState(false)
@@ -59,6 +61,26 @@ export default function SettingsPage() {
   return (
     <div className="flex flex-col gap-6">
       <h1 className="font-display text-xl text-ink dark:text-parchment tracking-wide">Settings</h1>
+
+      {/* ── Appearance ── */}
+      <Section title="Appearance">
+        <Row label="Dark mode">
+          <button
+            role="switch"
+            aria-checked={isDark}
+            onClick={toggle}
+            className={`relative w-11 h-6 rounded-full transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+              isDark ? 'bg-gold' : 'bg-ink/20 dark:bg-parchment/20'
+            }`}
+          >
+            <span
+              className={`absolute top-0.5 left-0.5 w-5 h-5 bg-parchment dark:bg-ink rounded-full shadow transition-transform duration-200 ${
+                isDark ? 'translate-x-5' : 'translate-x-0'
+              }`}
+            />
+          </button>
+        </Row>
+      </Section>
 
       {/* ── Study preferences ── */}
       <Section title="Study">
