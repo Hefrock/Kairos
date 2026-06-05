@@ -20,6 +20,17 @@ export default function BrowsePage() {
         {decks.map(deck => (
           <DeckCard key={deck.id} deck={deck} stats={stats[deck.id]} />
         ))}
+
+        {/* ── Add-a-deck onboarding CTA ── */}
+        <Link
+          to="/settings"
+          className="rounded-card border border-dashed border-gold/30 hover:border-gold/60 p-5 flex items-center justify-center gap-2.5 text-ink/55 dark:text-parchment/55 hover:text-gold transition-colors group"
+        >
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden>
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+          <span className="font-display text-sm tracking-wide">Add your own deck</span>
+        </Link>
       </div>
     </div>
   )
@@ -37,7 +48,7 @@ function DeckCard({ deck, stats }: { deck: DeckMeta; stats?: DeckStats }) {
         <span className="text-[11px] font-body tracking-widest text-gold/70 uppercase">
           {deck.tag}
         </span>
-        <span className="text-xs text-ink/30 dark:text-parchment/30 font-body tabular-nums">
+        <span className="text-xs text-ink/50 dark:text-parchment/50 font-body tabular-nums">
           {deck.cards.length} cards
         </span>
       </div>
@@ -45,7 +56,7 @@ function DeckCard({ deck, stats }: { deck: DeckMeta; stats?: DeckStats }) {
       {/* ── Deck name + description ── */}
       <div>
         <h2 className="font-display text-lg text-ink dark:text-parchment tracking-wide leading-snug">{deck.name}</h2>
-        <p className="text-sm text-ink/50 dark:text-parchment/50 font-body mt-0.5 line-clamp-2 leading-relaxed">
+        <p className="text-sm text-ink/65 dark:text-parchment/65 font-body mt-0.5 line-clamp-2 leading-relaxed">
           {deck.description}
         </p>
       </div>

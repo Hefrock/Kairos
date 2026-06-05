@@ -122,12 +122,16 @@ const DEFAULT_SETTINGS: AppSettings = {
   defaultStudyMode: 'image-to-label',
   dailyGoal: 20,
   timerVisible: true,
+  shuffle: true,
 }
 
 export async function getSettings(): Promise<AppSettings> {
   const db = await getDB()
-  if (!db) return mem.settings ?? DEFAULT_SETTINGS
-  return (await db.get('settings', SETTINGS_KEY)) ?? DEFAULT_SETTINGS
+  const stored = db
+    ? await db.get('settings', SETTINGS_KEY)
+    : mem.settings
+  // Merge over defaults so settings added in newer versions are populated
+  return { ...DEFAULT_SETTINGS, ...(stored ?? {}) }
 }
 
 export async function putSettings(settings: AppSettings): Promise<void> {

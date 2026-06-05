@@ -34,7 +34,7 @@ export default function Flashcard({ card, mode, state, onFlip }: FlashcardProps)
           {mode === 'image-to-label' ? (
             <>
               <CardImage src={imgSrc} alt={card.label} dark={false} />
-              <span className="text-[11px] text-ink/25 dark:text-parchment/25 tracking-[0.25em] uppercase font-body select-none">
+              <span className="text-[11px] text-ink/45 dark:text-parchment/45 tracking-[0.25em] uppercase font-body select-none">
                 tap to reveal
               </span>
             </>
@@ -43,7 +43,7 @@ export default function Flashcard({ card, mode, state, onFlip }: FlashcardProps)
               <p className="font-display text-4xl text-ink dark:text-parchment tracking-wide text-center leading-tight select-none">
                 {card.label}
               </p>
-              <span className="text-[11px] text-ink/25 dark:text-parchment/25 tracking-[0.25em] uppercase font-body select-none">
+              <span className="text-[11px] text-ink/45 dark:text-parchment/45 tracking-[0.25em] uppercase font-body select-none">
                 tap to reveal
               </span>
             </>
@@ -58,14 +58,14 @@ export default function Flashcard({ card, mode, state, onFlip }: FlashcardProps)
                 {card.label}
               </p>
               <div className="w-10 h-px bg-gold/30" />
-              <p className="text-gold-light/60 text-sm text-center leading-relaxed font-body max-w-xs">
+              <p className="text-gold-light/90 text-[15px] text-center leading-relaxed font-body max-w-xs">
                 {desc}
               </p>
             </>
           ) : (
             <>
               <CardImage src={imgSrc} alt={card.label} dark={true} />
-              <p className="font-display text-lg text-gold/70 tracking-widest text-center select-none">
+              <p className="font-display text-lg text-gold/90 tracking-widest text-center select-none">
                 {card.label}
               </p>
             </>

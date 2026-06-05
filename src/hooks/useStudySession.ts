@@ -3,12 +3,12 @@
 // ─────────────────────────────────────────────
 import { useState, useEffect, useCallback } from 'react'
 import type { Card, Grade, StudyMode, SessionStats, DeckMeta } from '@/types'
-import { applyGrade, isDue, isNew, sortQueue } from '@/lib/srs/sm2'
+import { applyGrade, isDue, isNew, sortQueue, shuffle } from '@/lib/srs/sm2'
 import { getProgress, putProgress } from '@/lib/db'
 
 type SessionState = 'idle' | 'studying' | 'flipped' | 'done'
 
-export function useStudySession(deck: DeckMeta | null, mode: StudyMode) {
+export function useStudySession(deck: DeckMeta | null, mode: StudyMode, randomize = false) {
   const [queue, setQueue] = useState<Card[]>([])
   const [index, setIndex] = useState(0)
   const [state, setState] = useState<SessionState>('idle')
@@ -30,9 +30,12 @@ export function useStudySession(deck: DeckMeta | null, mode: StudyMode) {
     let due = withProgress.filter(c => isDue(c, now) || isNew(c))
     if (due.length === 0) due = withProgress
 
-    const sorted = sortQueue(due.map(c => ({ ...c, id: c.id }))) as Card[]
+    // Randomize order when shuffle is on, otherwise SRS-prioritized order
+    const ordered = randomize
+      ? shuffle(due.map(c => ({ ...c, id: c.id })))
+      : sortQueue(due.map(c => ({ ...c, id: c.id })))
 
-    setQueue(sorted)
+    setQueue(ordered as Card[])
     setIndex(0)
     setState('studying')
     setStats({
@@ -42,7 +45,7 @@ export function useStudySession(deck: DeckMeta | null, mode: StudyMode) {
       correct: 0,
       again: 0,
     })
-  }, [deck])
+  }, [deck, randomize])
 
   useEffect(() => {
     buildQueue()

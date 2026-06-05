@@ -16,6 +16,11 @@ body {
   @apply font-body bg-parchment text-ink antialiased;
   min-height: 100dvh;
   transition: background-color 0.2s ease, color 0.2s ease;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.01em;
+  line-height: 1.55;
 }
 
 .dark body {

@@ -105,6 +105,22 @@ export default function SettingsPage() {
             <span className="font-display text-sm text-gold w-10 tabular-nums">{settings.dailyGoal}</span>
           </div>
         </Row>
+        <Row label="Shuffle cards">
+          <button
+            role="switch"
+            aria-checked={settings.shuffle}
+            onClick={() => update({ shuffle: !settings.shuffle })}
+            className={`relative w-11 h-6 rounded-full transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+              settings.shuffle ? 'bg-gold' : 'bg-ink/20 dark:bg-parchment/20'
+            }`}
+          >
+            <span
+              className={`absolute top-0.5 left-0.5 w-5 h-5 bg-parchment dark:bg-ink rounded-full shadow transition-transform duration-200 ${
+                settings.shuffle ? 'translate-x-5' : 'translate-x-0'
+              }`}
+            />
+          </button>
+        </Row>
       </Section>
 
       {/* ── Deck import ── */}
@@ -190,8 +206,8 @@ export default function SettingsPage() {
 
       {/* ── About ── */}
       <Section title="About">
-        <p className="text-sm text-ink/40 dark:text-parchment/40 font-body">
-          Kairos v0.1 · Spaced repetition powered by SM-2 · Data stored locally in your browser.
+        <p className="text-sm text-ink/55 dark:text-parchment/55 font-body">
+          Kairos v0.2 · Spaced repetition powered by SM-2 · Data stored locally in your browser.
         </p>
       </Section>
     </div>
